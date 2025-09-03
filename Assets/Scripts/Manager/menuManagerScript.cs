@@ -1,32 +1,53 @@
+using System;
 using System.Collections;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
 public class menuManagerScript : MonoBehaviour
 {
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
-    {
-        
+    public static menuManagerScript Instance { get; private set; }
+    private void Awake() 
+    { 
+        // If there is an instance, and it's not me, delete myself.
+        if (Instance != null && Instance != this) 
+        { 
+            Destroy(this); 
+        } 
+        else 
+        { 
+            Instance = this; 
+            DontDestroyOnLoad(gameObject);
+        } 
     }
 
-    // Update is called once per frame
-    void Update()
+    //Variables
+    public UI_Pause pauseScript;
+    
+    private void Update()
     {
-        
+        if (Input.GetKeyDown(KeyCode.Escape))
+        {
+            PauseGame();
+        }
     }
-
+    
+    void PauseGame()
+    {
+        if (pauseScript)
+        {
+            pauseScript.Pause();
+        }
+    }
+    
     public void ExitGame() {
         Debug.Log("Saiu");
         Application.Quit();
     }
 
     // Change Scene
-
     public void ChangeSceneByIndex(int index) {
         StartCoroutine(I_ChangeSceneByIndex(index));
     }
-
     public void ChangeSceneByName(string sceneName) {
         StartCoroutine(I_ChangeSceneByName(sceneName));
         
@@ -39,7 +60,6 @@ public class menuManagerScript : MonoBehaviour
             yield return null;
         }
     }
-
     IEnumerator I_ChangeSceneByName(string sceneName) {
         AsyncOperation sceneLoading = SceneManager.LoadSceneAsync(sceneName);
 

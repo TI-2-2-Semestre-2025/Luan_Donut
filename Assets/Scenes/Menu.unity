@@ -951,6 +951,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 108ad6ac512a36244ba8b7386443b5ae, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  pauseScript: {fileID: 0}
 --- !u!4 &1309198707
 Transform:
   m_ObjectHideFlags: 0
@@ -1102,7 +1103,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: GAME TITLE
+  m_text: LUAN'S DONUT
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: e3b037c3a1c1b804d9f5f37308a3d578, type: 2}
   m_sharedMaterial: {fileID: 2516822608741789728, guid: e3b037c3a1c1b804d9f5f37308a3d578, type: 2}
