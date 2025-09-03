@@ -1,23 +1,25 @@
-using System;
+using System.Collections;
 using UnityEngine;
 
 public class Player_Movement : MonoBehaviour
 {
     public float laneDistance;
+    public float rollSeconds;
     public float speed;
     
     private int lane=0;
-    private Rigidbody rigidbody;
+    private CharacterController characterController;
 
     private void Start()
     {
-        rigidbody = GetComponent<Rigidbody>();
+        characterController = GetComponent<CharacterController>();
     }
 
     private void Update()
     {
-        rigidbody.AddForce(speed * 100 * Time.deltaTime * transform.forward);
-        
+        characterController.Move(speed * Time.deltaTime * transform.forward);
+            
+        //Basics
         if (Input.GetKeyDown(KeyCode.D))
         {
             ChangeLane(direction: 1);
@@ -26,16 +28,43 @@ public class Player_Movement : MonoBehaviour
         {
             ChangeLane(direction: -1);
         }
+        //Roll
+        if (Input.GetKeyDown(KeyCode.S))
+        {
+            Roll();
+        }
+        if (Input.GetKeyDown(KeyCode.Space))
+        {
+            //Jump
+        }
     }
     
     // 1 => Right / -1 => Left
-    void ChangeLane(int direction)
+    private void ChangeLane(int direction)
     {
         lane += direction;
         if (lane is <= 1 and >= -1)
         {
+            characterController.enabled = false;
             transform.Translate(laneDistance * direction * transform.right);
+            characterController.enabled = true;
         }else {lane -= direction;};
-        Debug.Log(lane);
+    }
+
+    private void Roll()
+    {
+        StartCoroutine(I_Roll());
+    }
+
+    private IEnumerator I_Roll()
+    {
+        float defHeight = characterController.height;
+        Vector3 defCenter = characterController.center;
+        
+        characterController.height /= 2;
+        characterController.center -= new Vector3(0, characterController.height/2, 0);
+        yield return new WaitForSeconds(rollSeconds);
+        characterController.height = defHeight;
+        characterController.center = defCenter;
     }
 }
