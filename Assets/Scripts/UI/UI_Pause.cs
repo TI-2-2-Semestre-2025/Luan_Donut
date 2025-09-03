@@ -6,7 +6,7 @@ public class UI_Pause : MonoBehaviour
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        menuManagerScript.Instance.pauseScript = this;
+        Menu_Manager.Instance.pauseScript = this;
         gameObject.SetActive(false);
     }
 
@@ -29,6 +29,6 @@ public class UI_Pause : MonoBehaviour
     
     public void ExitToMenu()
     {
-        menuManagerScript.Instance.ChangeSceneByIndex(0);
+        Menu_Manager.Instance.ChangeSceneByIndex(0);
     }
 }

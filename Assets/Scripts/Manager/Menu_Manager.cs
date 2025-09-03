@@ -3,9 +3,9 @@ using System.Collections;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public class menuManagerScript : MonoBehaviour
+public class Menu_Manager : MonoBehaviour
 {
-    public static menuManagerScript Instance { get; private set; }
+    public static Menu_Manager Instance { get; private set; }
     private void Awake() 
     { 
         // If there is an instance, and it's not me, delete myself.
