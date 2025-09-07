@@ -7,23 +7,22 @@ public class Player_Movement : MonoBehaviour
     public float laneDistance;
     public float rollSeconds;
     public float speed;
-
-    public float gravity;
     public float jumpForce;
 
-    private bool isJump;
     private int lane=0;
-    private CharacterController characterController;
+    private bool isRoll=false;
+    private Rigidbody rigidbody;
+    private CapsuleCollider collider;
 
     private void Start()
     {
-        characterController = GetComponent<CharacterController>();
+        rigidbody = GetComponent<Rigidbody>();
+        collider = GetComponent<CapsuleCollider>();
     }
 
     private void Update()
     {
-        Gravity();
-        characterController.Move(speed * Time.deltaTime * transform.forward);
+        rigidbody.AddForce(speed * 100 * Time.deltaTime * transform.forward);
             
         //Left / Right
         if (Input.GetKeyDown(KeyCode.D))
@@ -37,46 +36,34 @@ public class Player_Movement : MonoBehaviour
         //Roll
         if (Input.GetKeyDown(KeyCode.S))
         {
-            Roll();
+            if (!isRoll)
+            {
+                Roll();
+            }
         }
         //Jump
         if (Input.GetKeyDown(KeyCode.Space))
         {
-            isJump = true;
+            if (transform.position.y <= 1.1)
+            {
+                Jump();
+            }            
         }
     }
-    
+
     // 1 => Right / -1 => Left
     private void ChangeLane(int direction)
     {
         lane += direction;
         if (lane is <= 1 and >= -1)
         {
-            characterController.enabled = false;
             transform.Translate(laneDistance * direction * transform.right);
-            characterController.enabled = true;
         }else {lane -= direction;};
     }
 
-    private void Gravity()
+    private void Jump()
     {
-        Vector3 velocity = transform.up;
-
-        if (characterController.isGrounded)
-        {
-            if(isJump)
-            {
-                velocity.y *= jumpForce;
-                isJump = false;
-
-                characterController.Move(velocity);
-            }
-        }else
-        {
-            velocity.y = gravity * Time.deltaTime;
-
-            characterController.Move(-velocity);
-        }
+        rigidbody.AddForce(jumpForce * transform.up, ForceMode.Impulse);
     }
 
     private void Roll()
@@ -86,13 +73,14 @@ public class Player_Movement : MonoBehaviour
 
     private IEnumerator I_Roll()
     {
-        float defHeight = characterController.height;
-        Vector3 defCenter = characterController.center;
-        
-        characterController.height /= 2;
-        characterController.center -= new Vector3(0, characterController.height/2, 0);
+        float defHeight = collider.height;
+        Vector3 defCenter = collider.center;
+
+        collider.height /= 2;
+        collider.center -= new Vector3(0, collider.height/2, 0);
         yield return new WaitForSeconds(rollSeconds);
-        characterController.height = defHeight;
-        characterController.center = defCenter;
+        collider.height = defHeight;
+        collider.center = defCenter;
+        isRoll = false;
     }
 }
