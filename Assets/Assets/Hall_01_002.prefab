@@ -9,7 +9,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2915717235998018055}
-  - component: {fileID: 4601618005915621450}
   m_Layer: 0
   m_Name: Hall_01_002
   m_TagString: Untagged
@@ -33,27 +32,6 @@ Transform:
   - {fileID: 1635924408483850395}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!65 &4601618005915621450
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8803240554942679272}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 0
-  m_ProvidesContacts: 0
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Size: {x: 7, y: 0.1, z: 25}
-  m_Center: {x: 0, y: 0, z: 12.5}
 --- !u!1001 &1241095643476217712
 PrefabInstance:
   m_ObjectHideFlags: 0

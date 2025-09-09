@@ -47,12 +47,13 @@ public class Game_Manager : MonoBehaviour
     // Change Scene
     public void ChangeSceneByIndex(int index)
     {
+        Time.timeScale = 1;
         StartCoroutine(I_ChangeSceneByIndex(index));
     }
     public void ChangeSceneByName(string sceneName)
     {
+        Time.timeScale = 1;
         StartCoroutine(I_ChangeSceneByName(sceneName));
-
     }
 
     IEnumerator I_ChangeSceneByIndex(int index)

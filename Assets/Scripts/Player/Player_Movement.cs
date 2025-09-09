@@ -24,7 +24,6 @@ public class Player_Movement : MonoBehaviour
 
     private void Update()
     {
-        Debug.Log("a");
         rigidbody.AddForce(speed * 100 * Time.deltaTime * transform.forward);
     }
 
