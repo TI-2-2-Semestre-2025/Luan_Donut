@@ -5,11 +5,11 @@ public class UI_HUD : MonoBehaviour
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        Menu_Manager.Instance.hudScript = this;
+        Game_Manager.Instance.UI_HUD = this;
     }
 
     public void Pause()
     {
-        Menu_Manager.Instance.pauseScript.Pause();
+        Game_Manager.Instance.UI_Pause.Pause();
     }
 }

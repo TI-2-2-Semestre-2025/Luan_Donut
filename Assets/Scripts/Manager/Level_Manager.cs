@@ -17,8 +17,13 @@ public class Level_Manager : MonoBehaviour
     }
 
     public float distance = 1000;
-    public float distanceRemaining;
+    public float playerDistance = 0;
+    public float terrainBlocksMulti = 5;
 
+    public GameObject[] terrainBlocks;
+
+    private int terrainBlocksDistance = 25;
+    private float terrainBlocksGenerated = 0;
     private GameObject player;
 
     private void Start()
@@ -30,16 +35,31 @@ public class Level_Manager : MonoBehaviour
 
     private void Update()
     {
+        GenerateTerrain();
+
         if (player != null)
         {
             DistanceCheck();
         }
     }
 
+    private void GenerateTerrain()
+    {
+        if (playerDistance + (terrainBlocksMulti * terrainBlocksDistance) >= (terrainBlocksDistance * terrainBlocksGenerated))
+        {
+            int index = Random.Range(0, terrainBlocks.Length);
+            GameObject terrain = Instantiate(terrainBlocks[index]);
+            terrain.transform.position = Vector3.zero;
+            terrain.transform.Translate(0, 0, terrainBlocksDistance * terrainBlocksGenerated);
+
+            terrainBlocksGenerated++;
+        }
+    }
+
     private void DistanceCheck()
     {
-        distanceRemaining = distance - player.transform.position.z;
-        if (distanceRemaining <= 0)
+        playerDistance = player.transform.position.z;
+        if (playerDistance >= distance)
         {
             Menu_Manager.Instance.ChangeSceneByIndex(0);
         }

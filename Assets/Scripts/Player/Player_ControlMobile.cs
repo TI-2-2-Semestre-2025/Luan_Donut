@@ -23,6 +23,7 @@ public class Player_ControlMobile : MonoBehaviour
     {
         if (Input.touchCount > 0)
         {
+
             Touch touch = Input.GetTouch(0);
 
             switch(touch.phase)
@@ -46,6 +47,8 @@ public class Player_ControlMobile : MonoBehaviour
         //Swipe Check
         if (touchPath.magnitude > swipeDistanceMin)
         {
+            Debug.Log("Swipe: " + touchPath.magnitude);
+
             float xDistance = touchPath.x;
             float yDistance = touchPath.y;
 
@@ -57,7 +60,7 @@ public class Player_ControlMobile : MonoBehaviour
                 }
                 else
                 {
-                    playerMovement.ChangeLane(0);
+                    playerMovement.ChangeLane(-1);
                 }
             }else
             {

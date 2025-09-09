@@ -15,59 +15,23 @@ public class Menu_Manager : MonoBehaviour
         } 
         else 
         { 
-            Instance = this; 
-            DontDestroyOnLoad(gameObject);
+            Instance = this;
         } 
     }
 
-    //Variables
-    public UI_Pause pauseScript;
-    public UI_HUD hudScript;
-    
-    private void Update()
+    private void Start()
     {
-        if (Input.GetKeyDown(KeyCode.Escape))
-        {
-            PauseGame();
-        }
+        Game_Manager.Instance.MenuManager = this;
     }
-    
-    void PauseGame()
+
+    public void ChangeSceneByIndex(int index)
     {
-        if (pauseScript)
-        {
-            pauseScript.Pause();
-        }
-    }
-    
-    public void ExitGame() {
-        Debug.Log("Saiu");
-        Application.Quit();
+        Game_Manager.Instance.ChangeSceneByIndex(index);
     }
 
-    // Change Scene
-    public void ChangeSceneByIndex(int index) {
-        StartCoroutine(I_ChangeSceneByIndex(index));
+     
+    public void ExitGame()
+    {
+        Game_Manager.Instance.ExitGame();
     }
-    public void ChangeSceneByName(string sceneName) {
-        StartCoroutine(I_ChangeSceneByName(sceneName));
-        
-    }
-
-    IEnumerator I_ChangeSceneByIndex(int index) {
-        AsyncOperation sceneLoading = SceneManager.LoadSceneAsync(index);
-
-        while (!sceneLoading.isDone) {
-            yield return null;
-        }
-    }
-    IEnumerator I_ChangeSceneByName(string sceneName) {
-        AsyncOperation sceneLoading = SceneManager.LoadSceneAsync(sceneName);
-
-        while (!sceneLoading.isDone) {
-            yield return null;
-        }
-    }
-
-
 }
