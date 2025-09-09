@@ -2,7 +2,6 @@ using UnityEngine;
 
 public class UI_Pause : MonoBehaviour
 {
-    public bool isPaused=false;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
@@ -10,21 +9,14 @@ public class UI_Pause : MonoBehaviour
         gameObject.SetActive(false);
     }
 
-    public void Pause()
+    public void ChangeVisibility(bool value)
     {
-        isPaused = !isPaused;
+        gameObject.SetActive(value);
+    }
 
-        if (isPaused)
-        {
-            Time.timeScale = 0;
-            gameObject.SetActive(true);
-        }
-        else
-        {
-            Time.timeScale = 1;
-            gameObject.SetActive(false);
-        }
-        
+    public void Continue()
+    {
+        Game_Manager.Instance.PauseGame(false);
     }
     
     public void ExitToMenu()

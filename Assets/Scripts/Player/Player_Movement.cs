@@ -24,33 +24,8 @@ public class Player_Movement : MonoBehaviour
 
     private void Update()
     {
+        Debug.Log("a");
         rigidbody.AddForce(speed * 100 * Time.deltaTime * transform.forward);
-            
-        //Left / Right
-        if (Input.GetKeyDown(KeyCode.D))
-        {
-            ChangeLane(direction: 1);
-        }
-        if (Input.GetKeyDown(KeyCode.A))
-        {
-            ChangeLane(direction: -1);
-        }
-        //Roll
-        if (Input.GetKeyDown(KeyCode.S))
-        {
-            if (!isRoll)
-            {
-                Roll();
-            }
-        }
-        //Jump
-        if (Input.GetKeyDown(KeyCode.Space))
-        {
-            if (transform.position.y <= 1.1)
-            {
-                Jump();
-            }            
-        }
     }
 
     // 1 => Right / -1 => Left
@@ -65,12 +40,19 @@ public class Player_Movement : MonoBehaviour
 
     public void Jump()
     {
-        rigidbody.AddForce(jumpForce * transform.up, ForceMode.Impulse);
+        if (transform.position.y <= 1.1)
+        {
+            rigidbody.AddForce(jumpForce * transform.up, ForceMode.Impulse);
+        }
     }
 
     public void Roll()
     {
-        StartCoroutine(I_Roll());
+        if (!isRoll)
+        {
+            isRoll = true;
+            StartCoroutine(I_Roll());
+        }
     }
 
     private IEnumerator I_Roll()

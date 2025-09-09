@@ -28,7 +28,6 @@ public class Menu_Manager : MonoBehaviour
     {
         Game_Manager.Instance.ChangeSceneByIndex(index);
     }
-
      
     public void ExitGame()
     {

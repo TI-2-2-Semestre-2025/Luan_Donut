@@ -19,6 +19,8 @@ public class Game_Manager : MonoBehaviour
         }
     }
 
+    public bool isPaused;
+
     public Level_Manager LevelManager;
     public Menu_Manager MenuManager;
 
@@ -27,12 +29,13 @@ public class Game_Manager : MonoBehaviour
 
     public GameObject Player;
 
-    public void PauseGame()
+    public void PauseGame(bool pause)
     {
-        if (UI_Pause)
-        {
-            UI_Pause.Pause();
-        }
+        isPaused = pause;
+        UI_Pause.ChangeVisibility(isPaused);
+
+        if (isPaused) Time.timeScale = 0;
+        else Time.timeScale = 1;
     }
 
     public void ExitGame()
