@@ -16,6 +16,8 @@ public class Player_Movement : MonoBehaviour
 
     private void Start()
     {
+        Game_Manager.Instance.Player = gameObject;
+
         rigidbody = GetComponent<Rigidbody>();
         collider = GetComponent<CapsuleCollider>();
     }
@@ -52,7 +54,7 @@ public class Player_Movement : MonoBehaviour
     }
 
     // 1 => Right / -1 => Left
-    private void ChangeLane(int direction)
+    public void ChangeLane(int direction)
     {
         lane += direction;
         if (lane is <= 1 and >= -1)
@@ -61,12 +63,12 @@ public class Player_Movement : MonoBehaviour
         }else {lane -= direction;};
     }
 
-    private void Jump()
+    public void Jump()
     {
         rigidbody.AddForce(jumpForce * transform.up, ForceMode.Impulse);
     }
 
-    private void Roll()
+    public void Roll()
     {
         StartCoroutine(I_Roll());
     }

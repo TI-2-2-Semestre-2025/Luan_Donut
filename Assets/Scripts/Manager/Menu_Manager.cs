@@ -22,6 +22,7 @@ public class Menu_Manager : MonoBehaviour
 
     //Variables
     public UI_Pause pauseScript;
+    public UI_HUD hudScript;
     
     private void Update()
     {
