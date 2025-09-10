@@ -19,9 +19,11 @@ public class Level_Manager : MonoBehaviour
     public float distance = 1000;
     public float playerDistance = 0;
     public float terrainBlocksMulti = 5;
+    public int obsChance = 30;
 
     public GameObject GroundCollider;
     public GameObject[] terrainBlocks;
+    public GameObject[] obstacles;
 
     private int terrainBlocksDistance = 25;
     private float terrainBlocksGenerated = 0;
@@ -36,10 +38,10 @@ public class Level_Manager : MonoBehaviour
 
     private void Update()
     {
-        //  GenerateTerrain();
+        GenerateTerrain();
         GroundColliderControl();
 
-        if (player != null)
+        if (player)
         {
             DistanceCheck();
         }

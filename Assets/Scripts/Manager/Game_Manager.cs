@@ -20,6 +20,7 @@ public class Game_Manager : MonoBehaviour
     }
 
     public bool isPaused;
+    public float laneOffset = 2.4f;
 
     public Level_Manager LevelManager;
     public Menu_Manager MenuManager;

@@ -18,6 +18,7 @@ public class Player_Movement : MonoBehaviour
     {
         Game_Manager.Instance.Player = gameObject;
 
+        laneDistance = Game_Manager.Instance.laneOffset;
         rigidbody = GetComponent<Rigidbody>();
         collider = GetComponent<CapsuleCollider>();
     }

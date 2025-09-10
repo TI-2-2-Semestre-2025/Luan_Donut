@@ -674,6 +674,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d9af8f3b872143b44ac4e28b0c012965, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  isPaused: 0
   LevelManager: {fileID: 0}
   MenuManager: {fileID: 0}
   UI_HUD: {fileID: 0}
@@ -729,7 +730,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 1080, y: 1920}
+  m_SizeDelta: {x: 3840, y: 1920}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &676855573
 MonoBehaviour:

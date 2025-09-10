@@ -14,7 +14,7 @@ public class Player : MonoBehaviour
     {
         if (hp <= 0)
         {
-            Destroy(this.gameObject); Destroy(this.gameObject);
+            Game_Manager.Instance.ChangeSceneByIndex(0);
         }
     }
 
