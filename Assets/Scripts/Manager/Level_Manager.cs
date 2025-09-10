@@ -35,7 +35,7 @@ public class Level_Manager : MonoBehaviour
 
     private void Update()
     {
-        GenerateTerrain();
+      //  GenerateTerrain();
 
         if (player != null)
         {
