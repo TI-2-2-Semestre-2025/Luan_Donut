@@ -21,7 +21,6 @@ public class Level_Manager : MonoBehaviour
     public float terrainBlocksMulti = 5;
 
     public GameObject[] terrainBlocks;
-    public GameObject groundCollider;
 
     private int terrainBlocksDistance = 25;
     private float terrainBlocksGenerated = 0;
@@ -36,14 +35,11 @@ public class Level_Manager : MonoBehaviour
 
     private void Update()
     {
-        GenerateTerrain();
-        groundCollider.transform.position = new Vector3(Game_Manager.Instance.Player.transform.position.x, 0, Game_Manager.Instance.Player.transform.position.z);
+      //  GenerateTerrain();
 
         if (player != null)
         {
             DistanceCheck();
-
-            Game_Manager.Instance.UI_HUD.ChangeDistanceSlider(value: playerDistance, maxValue: distance);
         }
     }
 
