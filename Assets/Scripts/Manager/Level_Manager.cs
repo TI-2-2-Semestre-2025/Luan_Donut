@@ -41,9 +41,12 @@ public class Level_Manager : MonoBehaviour
         GenerateTerrain();
         GroundColliderControl();
 
-        if (player)
+        try
         {
             DistanceCheck();
+        }
+        catch
+        {
         }
     }
 
@@ -63,9 +66,10 @@ public class Level_Manager : MonoBehaviour
     private void DistanceCheck()
     {
         playerDistance = player.transform.position.z;
+        Game_Manager.Instance.UI_HUD.ChangeDistanceSlider(playerDistance, distance);
         if (playerDistance >= distance)
         {
-            Menu_Manager.Instance.ChangeSceneByIndex(0);
+            Game_Manager.Instance.ChangeSceneByIndex(0);
         }
     }
 

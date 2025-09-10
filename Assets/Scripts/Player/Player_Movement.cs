@@ -7,6 +7,7 @@ public class Player_Movement : MonoBehaviour
     public float laneDistance;
     public float rollSeconds;
     public float speed;
+    public float speedGain;
     public float jumpForce;
 
     private int lane=0;
@@ -26,6 +27,8 @@ public class Player_Movement : MonoBehaviour
     private void Update()
     {
         rigidbody.AddForce(speed * 100 * Time.deltaTime * transform.forward);
+        
+        speed += speedGain * Time.deltaTime;
     }
 
     // 1 => Right / -1 => Left
