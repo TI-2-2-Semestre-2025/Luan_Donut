@@ -5,6 +5,7 @@ public class Player : MonoBehaviour
     public int hp;
     void Start()
     {
+        Game_Manager.Instance.Player = this.gameObject;
         hp = 3;
     }
 
@@ -22,7 +23,7 @@ public class Player : MonoBehaviour
     {
         if (Trigger.gameObject.tag == "Obstaculo")
         {
-
+            Game_Manager.Instance.UI_HUD.RemoveHeart(1);
             hp--;
         }
     }
