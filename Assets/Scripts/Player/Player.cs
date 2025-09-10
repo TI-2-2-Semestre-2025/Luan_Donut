@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class NewMonoBehaviourScript : MonoBehaviour
+public class Player : MonoBehaviour
 {
     public int hp;
     void Start()

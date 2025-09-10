@@ -20,6 +20,7 @@ public class Level_Manager : MonoBehaviour
     public float playerDistance = 0;
     public float terrainBlocksMulti = 5;
 
+    public GameObject GroundCollider;
     public GameObject[] terrainBlocks;
 
     private int terrainBlocksDistance = 25;
@@ -35,7 +36,8 @@ public class Level_Manager : MonoBehaviour
 
     private void Update()
     {
-      //  GenerateTerrain();
+        //  GenerateTerrain();
+        GroundColliderControl();
 
         if (player != null)
         {
@@ -63,5 +65,12 @@ public class Level_Manager : MonoBehaviour
         {
             Menu_Manager.Instance.ChangeSceneByIndex(0);
         }
+    }
+
+    private void GroundColliderControl()
+    {
+        Vector3 playerPosition = Game_Manager.Instance.Player.transform.position;
+
+        GroundCollider.transform.position = new Vector3(playerPosition.x, 0, playerPosition.z);
     }
 }
