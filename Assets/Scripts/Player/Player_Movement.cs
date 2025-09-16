@@ -4,31 +4,28 @@ using UnityEngine.Rendering.Universal;
 
 public class Player_Movement : MonoBehaviour
 {
-    public float laneDistance;
-    public float rollSeconds;
-    public float speed;
-    public float speedGain;
-    public float jumpForce;
-
     private int lane=0;
-    private bool isRoll=false;
+    private bool roll = false;
+    
     private Rigidbody rigidbody;
     private CapsuleCollider collider;
+    private Player_EntityStats _entityStats;
+    public GameObject playerModel;
 
     private void Start()
     {
-        Game_Manager.Instance.Player = gameObject;
-
-        laneDistance = Game_Manager.Instance.laneOffset;
+        _entityStats = GetComponent<Player_EntityStats>();
+        
         rigidbody = GetComponent<Rigidbody>();
         collider = GetComponent<CapsuleCollider>();
     }
 
     private void Update()
     {
-        rigidbody.AddForce(speed * 100 * Time.deltaTime * transform.forward);
-        
-        speed += speedGain * Time.deltaTime;
+        rigidbody.AddForce(_entityStats.speed * 100 * Time.deltaTime * transform.forward);
+        _entityStats.speed += _entityStats.speedGain * Time.deltaTime;
+
+        Level_Manager.Instance.playerDistance = transform.position.z;
     }
 
     // 1 => Right / -1 => Left
@@ -37,7 +34,7 @@ public class Player_Movement : MonoBehaviour
         lane += direction;
         if (lane is <= 1 and >= -1)
         {
-            transform.Translate(laneDistance * direction * transform.right);
+            transform.Translate(Game_Manager.Instance.laneOffset * direction * transform.right);
         }else {lane -= direction;};
     }
 
@@ -45,29 +42,37 @@ public class Player_Movement : MonoBehaviour
     {
         if (transform.position.y <= 1.1)
         {
-            rigidbody.AddForce(jumpForce * transform.up, ForceMode.Impulse);
+            rigidbody.AddForce(_entityStats.jumpForce * transform.up, ForceMode.Impulse);
         }
     }
 
     public void Roll()
     {
-        if (!isRoll)
+        if (!roll)
         {
-            isRoll = true;
+            roll = true;
             StartCoroutine(I_Roll());
         }
     }
 
     private IEnumerator I_Roll()
     {
+        float offset = 0.3f;
+        
         float defHeight = collider.height;
         Vector3 defCenter = collider.center;
 
         collider.height /= 2;
         collider.center -= new Vector3(0, collider.height/2, 0);
-        yield return new WaitForSeconds(rollSeconds);
+        playerModel.transform.Rotate(90,0,0);
+        playerModel.transform.Translate(0,-offset,0, Space.World);
+        
+        yield return new WaitForSeconds(_entityStats.rollSeconds);
+        
+        playerModel.transform.Translate(0,offset,0, Space.World);
+        playerModel.transform.Rotate(-90,0,0);
         collider.height = defHeight;
         collider.center = defCenter;
-        isRoll = false;
+        roll = false;
     }
 }

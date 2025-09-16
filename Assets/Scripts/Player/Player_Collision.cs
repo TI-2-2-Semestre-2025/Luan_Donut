@@ -1,11 +1,10 @@
 using UnityEngine;
 
-public class Player : MonoBehaviour
+public class Player_Collision : MonoBehaviour
 {
     public int hp;
     void Start()
     {
-        Game_Manager.Instance.Player = this.gameObject;
         hp = 3;
     }
 

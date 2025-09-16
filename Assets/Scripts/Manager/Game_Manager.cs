@@ -28,7 +28,7 @@ public class Game_Manager : MonoBehaviour
     public UI_HUD UI_HUD;
     public UI_Pause UI_Pause;
 
-    public GameObject Player;
+    public Player_EntityStats Player;
 
     public void PauseGame(bool pause)
     {

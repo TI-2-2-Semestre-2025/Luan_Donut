@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 2442627078911213023}
   - component: {fileID: 8968125837914556940}
   - component: {fileID: 3974826869670690503}
+  - component: {fileID: -7466419180104767762}
   - component: {fileID: 3400610459743747314}
   - component: {fileID: 7910569793230518529}
   - component: {fileID: 2611581612555893522}
@@ -89,6 +90,22 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 112
   m_CollisionDetection: 0
+--- !u!114 &-7466419180104767762
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1408252051148793442}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 67665eacd80d9ed4f98ced359aaf9844, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  rollSeconds: 1
+  speed: 25
+  speedGain: 0.5
+  jumpForce: 20
 --- !u!114 &3400610459743747314
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -101,10 +118,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 977dc7192639bc14c8f4bf1c0e174140, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  laneDistance: 2
-  rollSeconds: 1
-  speed: 25
-  jumpForce: 20
+  playerModel: {fileID: 5325773586981558437}
 --- !u!114 &7910569793230518529
 MonoBehaviour:
   m_ObjectHideFlags: 0

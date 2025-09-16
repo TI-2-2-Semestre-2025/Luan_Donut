@@ -33,10 +33,10 @@ public class UI_HUD : MonoBehaviour
     {
         while (true)
         {
-            GameObject Player = Game_Manager.Instance.Player;
+            GameObject Player = Game_Manager.Instance.Player.gameObject;
             if (Player != null)
             {
-                int qtdHeart = Player.GetComponent<Player>().hp;
+                int qtdHeart = Player.GetComponent<Player_Collision>().hp;
                 Hearts = new List<GameObject>(qtdHeart);
                 for (int i = 0; i < qtdHeart; i++)
                 {

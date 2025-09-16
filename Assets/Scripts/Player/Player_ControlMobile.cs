@@ -75,14 +75,4 @@ public class Player_ControlMobile : MonoBehaviour
             }
         }
     }
-
-    private void MoveLeft()
-    {
-
-    }
-
-    private void MoveRight()
-    {
-
-    }
 }

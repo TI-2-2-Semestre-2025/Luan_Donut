@@ -32,8 +32,6 @@ public class Level_Manager : MonoBehaviour
     private void Start()
     {
         Game_Manager.Instance.LevelManager = this;
-        
-        player = Game_Manager.Instance.Player;
     }
 
     private void Update()
@@ -65,7 +63,6 @@ public class Level_Manager : MonoBehaviour
 
     private void DistanceCheck()
     {
-        playerDistance = player.transform.position.z;
         Game_Manager.Instance.UI_HUD.ChangeDistanceSlider(playerDistance, distance);
         if (playerDistance >= distance)
         {
