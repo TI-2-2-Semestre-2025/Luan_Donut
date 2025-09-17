@@ -1,14 +1,15 @@
+using System;
 using System.Collections;
 using UnityEngine;
 using UnityEngine.Rendering.Universal;
 
 public class Player_Movement : MonoBehaviour
 {
-    private int lane=0;
+    public int lane=0;
     private bool roll = false;
     
-    private Rigidbody rigidbody;
-    private CapsuleCollider collider;
+    private Rigidbody _rigidbody;
+    private CapsuleCollider _collider;
     private Player_EntityStats _entityStats;
     public GameObject playerModel;
 
@@ -16,13 +17,13 @@ public class Player_Movement : MonoBehaviour
     {
         _entityStats = GetComponent<Player_EntityStats>();
         
-        rigidbody = GetComponent<Rigidbody>();
-        collider = GetComponent<CapsuleCollider>();
+        _rigidbody = GetComponent<Rigidbody>();
+        _collider = GetComponent<CapsuleCollider>();
     }
 
     private void Update()
     {
-        rigidbody.AddForce(_entityStats.speed * 100 * Time.deltaTime * transform.forward);
+        _rigidbody.AddForce(_entityStats.speed * 100 * Time.deltaTime * transform.forward);
         _entityStats.speed += _entityStats.speedGain * Time.deltaTime;
 
         Level_Manager.Instance.playerDistance = transform.position.z;
@@ -34,15 +35,29 @@ public class Player_Movement : MonoBehaviour
         lane += direction;
         if (lane is <= 1 and >= -1)
         {
-            transform.Translate(Game_Manager.Instance.laneOffset * direction * transform.right);
-        }else {lane -= direction;};
+            StartCoroutine(I_ChangeLane(direction));
+            //transform.Translate(Game_Manager.Instance.laneOffset * direction * transform.right);
+        }else lane -= direction;
+    }
+
+    IEnumerator I_ChangeLane(int direction)
+    {
+        float count = 0;
+        while (count < _entityStats.changeLaneSeconds)
+        {
+            float offset = Game_Manager.Instance.laneOffset;
+            transform.Translate(Time.deltaTime/_entityStats.changeLaneSeconds * offset * direction * transform.right);
+            count += Time.deltaTime;
+
+            yield return new WaitForEndOfFrame();
+        }
     }
 
     public void Jump()
     {
         if (transform.position.y <= 1.1)
         {
-            rigidbody.AddForce(_entityStats.jumpForce * transform.up, ForceMode.Impulse);
+            _rigidbody.AddForce(_entityStats.jumpForce * transform.up, ForceMode.Impulse);
         }
     }
 
@@ -59,11 +74,11 @@ public class Player_Movement : MonoBehaviour
     {
         float offset = 0.3f;
         
-        float defHeight = collider.height;
-        Vector3 defCenter = collider.center;
+        float defHeight = _collider.height;
+        Vector3 defCenter = _collider.center;
 
-        collider.height /= 2;
-        collider.center -= new Vector3(0, collider.height/2, 0);
+        _collider.height /= 2;
+        _collider.center -= new Vector3(0, _collider.height/2, 0);
         playerModel.transform.Rotate(90,0,0);
         playerModel.transform.Translate(0,-offset,0, Space.World);
         
@@ -71,8 +86,8 @@ public class Player_Movement : MonoBehaviour
         
         playerModel.transform.Translate(0,offset,0, Space.World);
         playerModel.transform.Rotate(-90,0,0);
-        collider.height = defHeight;
-        collider.center = defCenter;
+        _collider.height = defHeight;
+        _collider.center = defCenter;
         roll = false;
     }
 }

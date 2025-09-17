@@ -102,6 +102,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 67665eacd80d9ed4f98ced359aaf9844, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  changeLaneSeconds: 0.15
   rollSeconds: 1
   speed: 25
   speedGain: 0.5
@@ -118,6 +119,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 977dc7192639bc14c8f4bf1c0e174140, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  lane: 0
   playerModel: {fileID: 5325773586981558437}
 --- !u!114 &7910569793230518529
 MonoBehaviour:

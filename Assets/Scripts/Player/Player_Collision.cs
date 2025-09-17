@@ -6,6 +6,8 @@ public class Player_Collision : MonoBehaviour
     void Start()
     {
         hp = 3;
+        
+        for (int i=0; i<hp; i++) Game_Manager.Instance.UI_HUD.AddHeart();
     }
 
     
@@ -22,7 +24,7 @@ public class Player_Collision : MonoBehaviour
     {
         if (Trigger.gameObject.tag == "Obstaculo")
         {
-            Game_Manager.Instance.UI_HUD.RemoveHeart(1);
+            Game_Manager.Instance.UI_HUD.RemoveHeart();
             hp--;
         }
     }

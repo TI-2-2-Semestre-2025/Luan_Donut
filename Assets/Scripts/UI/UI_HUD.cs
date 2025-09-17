@@ -14,7 +14,7 @@ public class UI_HUD : MonoBehaviour
     void Start()
     {
         Game_Manager.Instance.UI_HUD = this;
-        StartCoroutine(I_InitialHeart());
+        Hearts = new List<GameObject>(capacity: 3);
     }
 
     public void Pause()
@@ -29,6 +29,12 @@ public class UI_HUD : MonoBehaviour
         distanceSlider.value = finalValue;
     }
 
+    public void AddHeart()
+    {
+        if (Hearts.Count <= 3) Hearts.Add(Instantiate(Heart, HeartHandle.transform));
+    }
+    
+    /*
     private IEnumerator I_InitialHeart()
     {
         while (true)
@@ -47,9 +53,9 @@ public class UI_HUD : MonoBehaviour
             }
             yield return new WaitForEndOfFrame();
         }
-    }
+    }*/
 
-    public void RemoveHeart(int qtd)
+    public void RemoveHeart()
     {
         int heartToDestroy = Hearts.Count - 1;
         Destroy(Hearts[heartToDestroy]);
