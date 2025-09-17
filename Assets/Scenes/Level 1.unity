@@ -340,6 +340,7 @@ MonoBehaviour:
   obstacles:
   - {fileID: 6318088071438091250, guid: aabc5620a9c698b499d038594fd8174f, type: 3}
   - {fileID: 5988281233573889443, guid: a2ee13d03cbc00042aa13a83e0cd23bf, type: 3}
+  - {fileID: 2104579030252135642, guid: cb0307a54d1dbaa468490cdf39d464d4, type: 3}
 --- !u!1001 &1536037457
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -355,6 +356,10 @@ PrefabInstance:
     - target: {fileID: 2223271861813731072, guid: ecd8d5b313cd22b46aa8f9ee40c86067, type: 3}
       propertyPath: m_Name
       value: Hall_01_001
+      objectReference: {fileID: 0}
+    - target: {fileID: 2223271861813731072, guid: ecd8d5b313cd22b46aa8f9ee40c86067, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5509959058835724370, guid: ecd8d5b313cd22b46aa8f9ee40c86067, type: 3}
       propertyPath: m_LocalPosition.x
@@ -396,7 +401,8 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: -725338379718708219, guid: ecd8d5b313cd22b46aa8f9ee40c86067, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []

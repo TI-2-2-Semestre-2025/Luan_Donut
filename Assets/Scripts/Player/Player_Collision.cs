@@ -3,6 +3,8 @@ using UnityEngine;
 public class Player_Collision : MonoBehaviour
 {
     public int hp;
+
+    private Player_EntityStats _entityStats;
     void Start()
     {
         hp = 3;
@@ -24,6 +26,7 @@ public class Player_Collision : MonoBehaviour
     {
         if (Trigger.gameObject.tag == "Obstaculo")
         {
+            gameObject.GetComponent<Player_Movement>().Hit();
             Game_Manager.Instance.UI_HUD.RemoveHeart();
             hp--;
         }

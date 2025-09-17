@@ -23,10 +23,35 @@ public class Player_Movement : MonoBehaviour
 
     private void Update()
     {
-        _rigidbody.AddForce(_entityStats.speed * 100 * Time.deltaTime * transform.forward);
-        _entityStats.speed += _entityStats.speedGain * Time.deltaTime;
+        Z_Movement();
 
         Level_Manager.Instance.playerDistance = transform.position.z;
+    }
+
+    private void Z_Movement()
+    {
+        _rigidbody.AddForce(_entityStats.speed * 100 * Time.deltaTime * transform.forward);
+        _entityStats.speed += _entityStats.speedGain * Time.deltaTime;
+    }
+    
+    
+    public void Hit()
+    {
+        _entityStats.speed = _entityStats.defSpeed;
+        StartCoroutine(I_FlashPlayer());
+    }
+
+    private IEnumerator I_FlashPlayer()
+    {
+        Vector3 dposition = playerModel.transform.position;
+        
+        for (int i = 0; i < 4; i++)
+        {
+            playerModel.transform.Translate(Vector3.up * 1000);
+            yield return new WaitForSeconds(0.35f);
+            playerModel.transform.Translate(Vector3.up * -1000);
+            yield return new WaitForSeconds(0.35f);
+        }
     }
 
     // 1 => Right / -1 => Left

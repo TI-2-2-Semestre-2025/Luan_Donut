@@ -19,7 +19,6 @@ public class Obstaculos : MonoBehaviour
     {
         if (Trigger.gameObject.tag == "Player")
         {
-
             Destroy(this.gameObject);
         }
 
