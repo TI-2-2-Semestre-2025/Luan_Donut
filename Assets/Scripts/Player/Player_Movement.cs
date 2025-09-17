@@ -6,6 +6,7 @@ using UnityEngine.Rendering.Universal;
 public class Player_Movement : MonoBehaviour
 {
     public int lane=0;
+    public float offset;
     private bool roll = false;
     
     private Rigidbody _rigidbody;
@@ -97,13 +98,12 @@ public class Player_Movement : MonoBehaviour
 
     private IEnumerator I_Roll()
     {
-        float offset = 0.3f;
-        
+        int multi = 3;
         float defHeight = _collider.height;
         Vector3 defCenter = _collider.center;
 
-        _collider.height /= 2;
-        _collider.center -= new Vector3(0, _collider.height/2, 0);
+        _collider.height /= 3;
+        _collider.center -= new Vector3(0, _collider.height/3, 0);
         playerModel.transform.Rotate(90,0,0);
         playerModel.transform.Translate(0,-offset,0, Space.World);
         
