@@ -341,6 +341,7 @@ MonoBehaviour:
   - {fileID: 6318088071438091250, guid: aabc5620a9c698b499d038594fd8174f, type: 3}
   - {fileID: 5988281233573889443, guid: a2ee13d03cbc00042aa13a83e0cd23bf, type: 3}
   - {fileID: 2104579030252135642, guid: cb0307a54d1dbaa468490cdf39d464d4, type: 3}
+  - {fileID: 6318088071438091250, guid: a9439329faa84e041886b94d52ea39da, type: 3}
 --- !u!1001 &1536037457
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -605,6 +606,10 @@ PrefabInstance:
     - target: {fileID: 3119122435913215276, guid: 95a76c21a0aad3c4b9a66391a97a0997, type: 3}
       propertyPath: m_AnchorMax.y
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3261223066317317682, guid: 95a76c21a0aad3c4b9a66391a97a0997, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: -46.685547
       objectReference: {fileID: 0}
     - target: {fileID: 5941605634973713083, guid: 95a76c21a0aad3c4b9a66391a97a0997, type: 3}
       propertyPath: m_Name

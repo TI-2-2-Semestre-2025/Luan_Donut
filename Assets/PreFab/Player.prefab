@@ -121,7 +121,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   lane: 0
-  offset: -0.1
+  offset: -0.5
   playerModel: {fileID: 2758623191485543484}
 --- !u!114 &7910569793230518529
 MonoBehaviour:
