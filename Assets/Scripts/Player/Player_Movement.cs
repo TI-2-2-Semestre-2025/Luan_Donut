@@ -38,7 +38,7 @@ public class Player_Movement : MonoBehaviour
     
     public void Hit()
     {
-        _entityStats.speed = _entityStats.defSpeed;
+        _entityStats.speed = (_entityStats.speed+_entityStats.defSpeed)/2;
         StartCoroutine(I_FlashPlayer());
     }
 
@@ -46,12 +46,12 @@ public class Player_Movement : MonoBehaviour
     {
         Vector3 dposition = playerModel.transform.position;
         
-        for (int i = 0; i < 4; i++)
+        for (int i = 0; i < 5; i++)
         {
             playerModel.transform.Translate(Vector3.up * 1000);
-            yield return new WaitForSeconds(0.35f);
+            yield return new WaitForSeconds(0.2f);
             playerModel.transform.Translate(Vector3.up * -1000);
-            yield return new WaitForSeconds(0.35f);
+            yield return new WaitForSeconds(0.2f);
         }
     }
 
@@ -62,7 +62,6 @@ public class Player_Movement : MonoBehaviour
         if (lane is <= 1 and >= -1)
         {
             StartCoroutine(I_ChangeLane(direction));
-            //transform.Translate(Game_Manager.Instance.laneOffset * direction * transform.right);
         }else lane -= direction;
     }
 
@@ -102,8 +101,8 @@ public class Player_Movement : MonoBehaviour
         float defHeight = _collider.height;
         Vector3 defCenter = _collider.center;
 
-        _collider.height /= 3;
-        _collider.center -= new Vector3(0, _collider.height/3, 0);
+        _collider.height /= multi;
+        _collider.center -= new Vector3(0, _collider.height/multi, 0);
         playerModel.transform.Rotate(90,0,0);
         playerModel.transform.Translate(0,-offset,0, Space.World);
         
