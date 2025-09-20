@@ -37,6 +37,12 @@ public class Player_Collision : MonoBehaviour
             Game_Manager.Instance.UI_HUD.RemoveHeart();
             hp--;
         }
+
+        if (Trigger.gameObject.tag == "Vida")
+        {
+            Game_Manager.Instance.UI_HUD.AddHeart();
+            hp++;
+        }
     }
 
 }
