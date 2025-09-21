@@ -2,6 +2,7 @@ using UnityEngine;
 
 public class Player_EntityStats : MonoBehaviour
 {
+    public float hp;
     public float changeLaneSeconds;
     public float rollSeconds;
     public float defSpeed;

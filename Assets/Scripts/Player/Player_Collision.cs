@@ -3,26 +3,24 @@ using UnityEngine;
 
 public class Player_Collision : MonoBehaviour
 {
-    public int hp;
-
     private Player_EntityStats _entityStats;
+    
     void Start()
     {
-        hp = 3;
-
+        _entityStats = GetComponent<Player_EntityStats>();
         StartCoroutine(wait());
     }
 
     IEnumerator wait()
     {
         yield return new WaitForEndOfFrame();
-        for (int i = 0; i < hp; i++) Game_Manager.Instance.UI_HUD.AddHeart();
+        for (int i = 0; i < _entityStats.hp; i++) Game_Manager.Instance.UI_HUD.AddHeart();
     }
 
     
     void FixedUpdate()
     {
-        if (hp <= 0)
+        if (_entityStats.hp <= 0)
         {
             Game_Manager.Instance.ChangeSceneByIndex(0);
         }
@@ -36,17 +34,16 @@ public class Player_Collision : MonoBehaviour
         {
             gameObject.GetComponent<Player_Movement>().Hit();
             Game_Manager.Instance.UI_HUD.RemoveHeart();
-            hp--;
+            _entityStats.hp--;
         }
-        
         
         // Life Power Up
         if (Trigger.gameObject.tag == "Vida")
         {
-            if (hp < 3)
+            if (_entityStats.hp < 3)
             {
                 Game_Manager.Instance.UI_HUD.AddHeart();
-                hp++;
+                _entityStats.hp++;
             }
         }
     }

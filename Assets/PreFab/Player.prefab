@@ -102,6 +102,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 67665eacd80d9ed4f98ced359aaf9844, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  hp: 3
   changeLaneSeconds: 0.15
   rollSeconds: 1
   defSpeed: 25
@@ -160,7 +161,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 00401016e8c24e44382e816677318d3a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  hp: 10
 --- !u!1 &6091739321181776115
 GameObject:
   m_ObjectHideFlags: 0
