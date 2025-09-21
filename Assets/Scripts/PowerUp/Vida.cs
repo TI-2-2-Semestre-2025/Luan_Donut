@@ -13,7 +13,7 @@ public class Vida : MonoBehaviour
     {
         
     }
-
+    
     private void OnTriggerEnter(Collider Trigger)
 
     {

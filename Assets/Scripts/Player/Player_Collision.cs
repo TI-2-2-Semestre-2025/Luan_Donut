@@ -31,17 +31,23 @@ public class Player_Collision : MonoBehaviour
     private void OnTriggerEnter(Collider Trigger)
 
     {
+        // Damage
         if (Trigger.gameObject.tag == "Obstaculo")
         {
             gameObject.GetComponent<Player_Movement>().Hit();
             Game_Manager.Instance.UI_HUD.RemoveHeart();
             hp--;
         }
-
+        
+        
+        // Life Power Up
         if (Trigger.gameObject.tag == "Vida")
         {
-            Game_Manager.Instance.UI_HUD.AddHeart();
-            hp++;
+            if (hp < 3)
+            {
+                Game_Manager.Instance.UI_HUD.AddHeart();
+                hp++;
+            }
         }
     }
 
