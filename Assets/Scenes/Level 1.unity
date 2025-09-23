@@ -336,6 +336,8 @@ MonoBehaviour:
   GroundCollider: {fileID: 465482022}
   terrainBlocks:
   - {fileID: 6986659431015477352, guid: 9d3e00d58b554e947baeafc8e2407378, type: 3}
+  scenarioBlocks:
+  - {fileID: 8580888732416787554, guid: aa5918cada6e62d41bb93cfbcb20f175, type: 3}
   obstacles:
   - {fileID: 6318088071438091250, guid: aabc5620a9c698b499d038594fd8174f, type: 3}
   - {fileID: 5988281233573889443, guid: a2ee13d03cbc00042aa13a83e0cd23bf, type: 3}

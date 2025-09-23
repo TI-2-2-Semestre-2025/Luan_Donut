@@ -23,6 +23,7 @@ public class Level_Manager : MonoBehaviour
 
     public GameObject GroundCollider;
     public GameObject[] terrainBlocks;
+    public GameObject[] scenarioBlocks;
     public GameObject[] obstacles;
 
     private int terrainBlocksDistance = 25;
@@ -36,7 +37,8 @@ public class Level_Manager : MonoBehaviour
 
     private void Update()
     {
-        GenerateTerrain();
+        GenerateStreet();
+        GenerateScenario();
         GroundColliderControl();
 
         try
@@ -48,7 +50,26 @@ public class Level_Manager : MonoBehaviour
         }
     }
 
-    private void GenerateTerrain()
+    private void GenerateScenario()
+    {
+        if (playerDistance + (terrainBlocksMulti * terrainBlocksDistance) >= (terrainBlocksDistance * terrainBlocksGenerated))
+        {
+            int index = Random.Range(0, scenarioBlocks.Length);
+            GameObject ScenarioRight = Instantiate(scenarioBlocks[index]);
+            GameObject ScenarioLeft = Instantiate(scenarioBlocks[index]);
+            
+            ScenarioRight.transform.position = Vector3.zero;
+            ScenarioRight.transform.Translate(0, 0, terrainBlocksDistance * terrainBlocksGenerated);
+            
+            ScenarioLeft.transform.position = Vector3.zero;
+            ScenarioLeft.transform.Translate(0, 0, terrainBlocksDistance * terrainBlocksGenerated);
+            ScenarioLeft.transform.localScale = new Vector3(-1, 1, 1);
+
+            terrainBlocksGenerated++;
+        }
+    }
+
+    private void GenerateStreet()
     {
         if (playerDistance + (terrainBlocksMulti * terrainBlocksDistance) >= (terrainBlocksDistance * terrainBlocksGenerated))
         {
@@ -56,8 +77,6 @@ public class Level_Manager : MonoBehaviour
             GameObject terrain = Instantiate(terrainBlocks[index]);
             terrain.transform.position = Vector3.zero;
             terrain.transform.Translate(0, 0, terrainBlocksDistance * terrainBlocksGenerated);
-
-            terrainBlocksGenerated++;
         }
     }
 
