@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 6062365380552849567}
   - component: {fileID: 7055243595154940264}
   m_Layer: 0
-  m_Name: ObstaclePlacheHolder 01
+  m_Name: Motorcycle
   m_TagString: Obstaculo
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 483022052669927687}
   - component: {fileID: 5253445823448412716}
   m_Layer: 0
-  m_Name: ObstacleRollPlaceHolder
+  m_Name: RollObstacle
   m_TagString: Obstaculo
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

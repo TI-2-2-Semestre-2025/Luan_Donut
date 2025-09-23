@@ -1,4 +1,5 @@
 using UnityEngine;
+using System.Collections;
 
 public class Level_Manager : MonoBehaviour
 {
@@ -64,8 +65,10 @@ public class Level_Manager : MonoBehaviour
             ScenarioLeft.transform.position = Vector3.zero;
             ScenarioLeft.transform.Translate(0, 0, terrainBlocksDistance * terrainBlocksGenerated);
             ScenarioLeft.transform.localScale = new Vector3(-1, 1, 1);
-
-            terrainBlocksGenerated++;
+            
+            
+            StartCoroutine(I_DeleteMap(ScenarioLeft));
+            StartCoroutine(I_DeleteMap(ScenarioRight));
         }
     }
 
@@ -77,7 +80,17 @@ public class Level_Manager : MonoBehaviour
             GameObject terrain = Instantiate(terrainBlocks[index]);
             terrain.transform.position = Vector3.zero;
             terrain.transform.Translate(0, 0, terrainBlocksDistance * terrainBlocksGenerated);
+
+            terrainBlocksGenerated++;
+
+            StartCoroutine(I_DeleteMap(terrain));
         }
+    }
+
+    private IEnumerator I_DeleteMap(GameObject obj)
+    {
+        yield return new WaitForSeconds(20);
+        Destroy(obj);
     }
 
     private void DistanceCheck()
