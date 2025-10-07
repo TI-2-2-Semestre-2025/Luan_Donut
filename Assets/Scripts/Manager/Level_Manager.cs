@@ -25,7 +25,6 @@ public class Level_Manager : MonoBehaviour
     public GameObject GroundCollider;
     public GameObject[] terrainBlocks;
     public GameObject[] scenarioBlocks;
-    public GameObject[] obstacles;
 
     private int terrainBlocksDistance = 25;
     private float terrainBlocksGenerated = 0;

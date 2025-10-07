@@ -27,6 +27,7 @@ public class Game_Manager : MonoBehaviour
 
     public UI_HUD UI_HUD;
     public UI_Pause UI_Pause;
+    public UI_Options UI_Options;
 
     public Player_EntityStats Player;
 

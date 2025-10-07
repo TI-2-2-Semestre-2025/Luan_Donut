@@ -19,6 +19,11 @@ public class Menu_Manager : MonoBehaviour
         } 
     }
 
+    public GameObject canvasOptions_pf;
+
+    private GameObject canvasOptions;
+    private bool optionsOpened;
+
     private void Start()
     {
         Game_Manager.Instance.MenuManager = this;
@@ -32,5 +37,15 @@ public class Menu_Manager : MonoBehaviour
     public void ExitGame()
     {
         Game_Manager.Instance.ExitGame();
+    }
+
+    public void OpenOptions()
+    {
+        canvasOptions = GameObject.Instantiate(canvasOptions_pf);
+    }
+
+    public void CloseOptions()
+    {
+        Destroy(canvasOptions);
     }
 }

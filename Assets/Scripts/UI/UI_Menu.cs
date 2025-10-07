@@ -5,6 +5,7 @@ public class UI_Menu : MonoBehaviour
 {
     public Button ExitButton;
 
+    private bool optionsOpened;
 
     public void ChangeSceneByIndex(int index)
     {
@@ -21,5 +22,9 @@ public class UI_Menu : MonoBehaviour
         Menu_Manager.Instance.ExitGame();
     }
 
+    public void OpenOptions()
+    {
+        Menu_Manager.Instance.OpenOptions();
+    }
 
 }

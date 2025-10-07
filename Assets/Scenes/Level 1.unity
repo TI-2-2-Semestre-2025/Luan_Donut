@@ -154,7 +154,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isPaused: 0
-  laneOffset: 2.4
+  laneOffset: 3
   LevelManager: {fileID: 0}
   MenuManager: {fileID: 0}
   UI_HUD: {fileID: 0}
@@ -336,6 +336,7 @@ MonoBehaviour:
   GroundCollider: {fileID: 465482022}
   terrainBlocks:
   - {fileID: 6986659431015477352, guid: 9d3e00d58b554e947baeafc8e2407378, type: 3}
+  - {fileID: 6986659431015477352, guid: 1d3f2d993b1a6ce4a97eba4594d96225, type: 3}
   scenarioBlocks:
   - {fileID: 8580888732416787554, guid: aa5918cada6e62d41bb93cfbcb20f175, type: 3}
   obstacles:
