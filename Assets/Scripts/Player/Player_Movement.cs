@@ -48,9 +48,9 @@ public class Player_Movement : MonoBehaviour
         
         for (int i = 0; i < 5; i++)
         {
-            playerModel.transform.Translate(Vector3.up * 1000);
+            playerModel.SetActive(false);
             yield return new WaitForSeconds(0.2f);
-            playerModel.transform.Translate(Vector3.up * -1000);
+            playerModel.SetActive(true);
             yield return new WaitForSeconds(0.2f);
         }
     }
