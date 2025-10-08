@@ -27,7 +27,7 @@ public class Level_Manager : MonoBehaviour
     public GameObject[] scenarioBlocks;
 
     private int terrainBlocksDistance = 25;
-    private float terrainBlocksGenerated = 0;
+    private float terrainBlocksGenerated = 1;
     private GameObject player;
 
     private void Start()
@@ -38,7 +38,6 @@ public class Level_Manager : MonoBehaviour
     private void Update()
     {
         GenerateStreet();
-        GenerateScenario();
         GroundColliderControl();
 
         try
@@ -52,23 +51,20 @@ public class Level_Manager : MonoBehaviour
 
     private void GenerateScenario()
     {
-        if (playerDistance + (terrainBlocksMulti * terrainBlocksDistance) >= (terrainBlocksDistance * terrainBlocksGenerated))
-        {
-            int index = Random.Range(0, scenarioBlocks.Length);
-            GameObject ScenarioRight = Instantiate(scenarioBlocks[index]);
-            GameObject ScenarioLeft = Instantiate(scenarioBlocks[index]);
-            
-            ScenarioRight.transform.position = Vector3.zero;
-            ScenarioRight.transform.Translate(0, 0, terrainBlocksDistance * terrainBlocksGenerated);
-            
-            ScenarioLeft.transform.position = Vector3.zero;
-            ScenarioLeft.transform.Translate(0, 0, terrainBlocksDistance * terrainBlocksGenerated);
-            ScenarioLeft.transform.localScale = new Vector3(-1, 1, 1);
-            
-            
-            StartCoroutine(I_DeleteMap(ScenarioLeft));
-            StartCoroutine(I_DeleteMap(ScenarioRight));
-        }
+        int index = Random.Range(0, scenarioBlocks.Length);
+        GameObject ScenarioRight = Instantiate(scenarioBlocks[index]);
+        GameObject ScenarioLeft = Instantiate(scenarioBlocks[index]);
+        
+        ScenarioRight.transform.position = Vector3.zero;
+        ScenarioRight.transform.Translate(0, 0, terrainBlocksDistance * terrainBlocksGenerated);
+        
+        ScenarioLeft.transform.position = Vector3.zero;
+        ScenarioLeft.transform.Translate(0, 0, terrainBlocksDistance * terrainBlocksGenerated);
+        ScenarioLeft.transform.localScale = new Vector3(-1, 1, 1);
+        
+        
+        StartCoroutine(I_DeleteMap(ScenarioLeft));
+        StartCoroutine(I_DeleteMap(ScenarioRight));
     }
 
     private void GenerateStreet()
@@ -79,8 +75,11 @@ public class Level_Manager : MonoBehaviour
             GameObject terrain = Instantiate(terrainBlocks[index]);
             terrain.transform.position = Vector3.zero;
             terrain.transform.Translate(0, 0, terrainBlocksDistance * terrainBlocksGenerated);
-
+            
+            GenerateScenario();
             terrainBlocksGenerated++;
+            
+            
 
             StartCoroutine(I_DeleteMap(terrain));
         }
