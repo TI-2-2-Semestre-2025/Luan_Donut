@@ -542,10 +542,8 @@ MonoBehaviour:
   obsChance: 33
   GroundCollider: {fileID: 465482022}
   terrainBlocks:
-  - {fileID: 7760071839744435982, guid: ec1ae7d5a88403247a30a337a4396ce1, type: 3}
-  - {fileID: 7760071839744435982, guid: ec1ae7d5a88403247a30a337a4396ce1, type: 3}
-  - {fileID: 7760071839744435982, guid: ec1ae7d5a88403247a30a337a4396ce1, type: 3}
   - {fileID: 7760071839744435982, guid: 88322c81716ee2a4faa0464e7f49ac53, type: 3}
+  - {fileID: 7760071839744435982, guid: ec1ae7d5a88403247a30a337a4396ce1, type: 3}
   - {fileID: 7760071839744435982, guid: 286242bb71cfd954aa83dceb9c0385ca, type: 3}
   - {fileID: 7760071839744435982, guid: fba1a21cb599f364e9c820e33d58834c, type: 3}
   - {fileID: 7760071839744435982, guid: 46bafd10dc210b344810c3870442281d, type: 3}
