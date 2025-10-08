@@ -87,7 +87,7 @@ public class Level_Manager : MonoBehaviour
 
     private IEnumerator I_DeleteMap(GameObject obj)
     {
-        yield return new WaitForSeconds(20);
+        yield return new WaitForSeconds(30);
         Destroy(obj);
     }
 

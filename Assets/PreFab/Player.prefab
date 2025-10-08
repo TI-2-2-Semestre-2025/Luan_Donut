@@ -104,10 +104,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   hp: 3
   changeLaneSeconds: 0.15
-  rollSeconds: 1
+  rollSeconds: 0.6
   defSpeed: 25
   speed: 0
-  speedGain: 1
+  speedGain: 0.75
   jumpForce: 25
 --- !u!114 &3400610459743747314
 MonoBehaviour:

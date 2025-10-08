@@ -105,9 +105,9 @@ public class Player_Movement : MonoBehaviour
         _collider.center -= new Vector3(0, _collider.height/multi, 0);
         playerModel.transform.Rotate(90,0,0);
         playerModel.transform.Translate(0,-offset,0, Space.World);
-        
+
         yield return new WaitForSeconds(_entityStats.rollSeconds);
-        
+
         playerModel.transform.Translate(0,offset,0, Space.World);
         playerModel.transform.Rotate(-90,0,0);
         _collider.height = defHeight;
