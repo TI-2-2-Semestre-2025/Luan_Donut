@@ -24,7 +24,7 @@ public class UI_Menu : MonoBehaviour
 
     public void OpenOptions()
     {
-        Menu_Manager.Instance.OpenOptions();
+        Game_Manager.Instance.UI_Options.OpenOptions();
     }
 
 }
