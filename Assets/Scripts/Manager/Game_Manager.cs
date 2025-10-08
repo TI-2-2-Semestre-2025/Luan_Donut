@@ -25,8 +25,10 @@ public class Game_Manager : MonoBehaviour
     public Level_Manager LevelManager;
     public Menu_Manager MenuManager;
 
+    public GameObject CanvasOptions;
     public UI_HUD UI_HUD;
     public UI_Pause UI_Pause;
+    public UI_Options UI_Options;
 
     public Player_EntityStats Player;
 

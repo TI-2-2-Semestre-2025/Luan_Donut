@@ -108,7 +108,7 @@ MonoBehaviour:
   defSpeed: 25
   speed: 0
   speedGain: 1
-  jumpForce: 20
+  jumpForce: 25
 --- !u!114 &3400610459743747314
 MonoBehaviour:
   m_ObjectHideFlags: 0

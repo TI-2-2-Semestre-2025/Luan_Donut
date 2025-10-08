@@ -23,4 +23,14 @@ public class UI_Pause : MonoBehaviour
     {
         Game_Manager.Instance.ChangeSceneByIndex(0);
     }
+
+    public void OpenOptions()
+    {
+        Game_Manager.Instance.UI_Options.OpenOptions();
+    }
+
+    public void CloseOptions()
+    {
+        Game_Manager.Instance.UI_Options.CloseOptions();
+    }
 }

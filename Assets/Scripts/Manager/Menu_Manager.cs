@@ -19,6 +19,8 @@ public class Menu_Manager : MonoBehaviour
         } 
     }
 
+    private bool optionsOpened;
+
     private void Start()
     {
         Game_Manager.Instance.MenuManager = this;
@@ -33,4 +35,6 @@ public class Menu_Manager : MonoBehaviour
     {
         Game_Manager.Instance.ExitGame();
     }
+
+    
 }

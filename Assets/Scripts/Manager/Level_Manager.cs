@@ -1,4 +1,5 @@
 using UnityEngine;
+using System.Collections;
 
 public class Level_Manager : MonoBehaviour
 {
@@ -23,10 +24,10 @@ public class Level_Manager : MonoBehaviour
 
     public GameObject GroundCollider;
     public GameObject[] terrainBlocks;
-    public GameObject[] obstacles;
+    public GameObject[] scenarioBlocks;
 
     private int terrainBlocksDistance = 25;
-    private float terrainBlocksGenerated = 0;
+    private float terrainBlocksGenerated = 1;
     private GameObject player;
 
     private void Start()
@@ -36,7 +37,7 @@ public class Level_Manager : MonoBehaviour
 
     private void Update()
     {
-        GenerateTerrain();
+        GenerateStreet();
         GroundColliderControl();
 
         try
@@ -48,7 +49,25 @@ public class Level_Manager : MonoBehaviour
         }
     }
 
-    private void GenerateTerrain()
+    private void GenerateScenario()
+    {
+        int index = Random.Range(0, scenarioBlocks.Length);
+        GameObject ScenarioRight = Instantiate(scenarioBlocks[index]);
+        GameObject ScenarioLeft = Instantiate(scenarioBlocks[index]);
+        
+        ScenarioRight.transform.position = Vector3.zero;
+        ScenarioRight.transform.Translate(0, 0, terrainBlocksDistance * terrainBlocksGenerated);
+        
+        ScenarioLeft.transform.position = Vector3.zero;
+        ScenarioLeft.transform.Translate(0, 0, terrainBlocksDistance * terrainBlocksGenerated);
+        ScenarioLeft.transform.localScale = new Vector3(-1, 1, 1);
+        
+        
+        StartCoroutine(I_DeleteMap(ScenarioLeft));
+        StartCoroutine(I_DeleteMap(ScenarioRight));
+    }
+
+    private void GenerateStreet()
     {
         if (playerDistance + (terrainBlocksMulti * terrainBlocksDistance) >= (terrainBlocksDistance * terrainBlocksGenerated))
         {
@@ -56,9 +75,20 @@ public class Level_Manager : MonoBehaviour
             GameObject terrain = Instantiate(terrainBlocks[index]);
             terrain.transform.position = Vector3.zero;
             terrain.transform.Translate(0, 0, terrainBlocksDistance * terrainBlocksGenerated);
-
+            
+            GenerateScenario();
             terrainBlocksGenerated++;
+            
+            
+
+            StartCoroutine(I_DeleteMap(terrain));
         }
+    }
+
+    private IEnumerator I_DeleteMap(GameObject obj)
+    {
+        yield return new WaitForSeconds(20);
+        Destroy(obj);
     }
 
     private void DistanceCheck()
