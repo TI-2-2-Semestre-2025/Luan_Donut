@@ -11,6 +11,12 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Level 1.unity
     guid: a116e83920ae0494d923893e4491d0bb
+  - enabled: 1
+    path: Assets/Scenes/zVitoria.unity
+    guid: d1b40e48dd4fa8b42aca5d6f74118a28
+  - enabled: 1
+    path: Assets/Scenes/zDerrota.unity
+    guid: 4055026f84dfe5a458270ded28204856
   m_configObjects:
     com.unity.adaptiveperformance.google.android.provider_settings: {fileID: 11400000, guid: 6f6a5661c3bf1c3479962d2aa4e5ead3, type: 2}
     com.unity.adaptiveperformance.loader_settings: {fileID: 11400000, guid: cba9dce07fbfb19448fff881f730209a, type: 2}

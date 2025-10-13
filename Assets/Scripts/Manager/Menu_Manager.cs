@@ -28,6 +28,7 @@ public class Menu_Manager : MonoBehaviour
 
     public void ChangeSceneByIndex(int index)
     {
+        Debug.Log("oi");
         Game_Manager.Instance.ChangeSceneByIndex(index);
     }
      

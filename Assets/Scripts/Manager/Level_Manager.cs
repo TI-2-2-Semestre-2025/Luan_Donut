@@ -96,7 +96,7 @@ public class Level_Manager : MonoBehaviour
         Game_Manager.Instance.UI_HUD.ChangeDistanceSlider(playerDistance, distance);
         if (playerDistance >= distance)
         {
-            Game_Manager.Instance.ChangeSceneByIndex(0);
+            Game_Manager.Instance.ChangeSceneByIndex(2);
         }
     }
 

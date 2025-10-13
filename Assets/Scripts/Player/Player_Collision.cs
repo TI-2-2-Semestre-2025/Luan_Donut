@@ -22,7 +22,7 @@ public class Player_Collision : MonoBehaviour
     {
         if (_entityStats.hp <= 0)
         {
-            Game_Manager.Instance.ChangeSceneByIndex(0);
+            Game_Manager.Instance.ChangeSceneByIndex(3);
         }
     }
 
