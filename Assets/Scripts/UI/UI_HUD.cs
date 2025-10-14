@@ -17,6 +17,7 @@ public class UI_HUD : MonoBehaviour
     {
         Game_Manager.Instance.UI_HUD = this;
         Hearts = new List<GameObject>(capacity: 3);
+        ChangeCoinValue(0);
     }
 
     public void Pause()

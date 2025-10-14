@@ -17,7 +17,6 @@ public class Player_Movement : MonoBehaviour
     private void Start()
     {
         _entityStats = GetComponent<Player_EntityStats>();
-        
         _rigidbody = GetComponent<Rigidbody>();
         _collider = GetComponent<CapsuleCollider>();
     }
@@ -38,7 +37,7 @@ public class Player_Movement : MonoBehaviour
     
     public void Hit()
     {
-        _entityStats.speed = (_entityStats.speed+_entityStats.defSpeed)/2;
+        _entityStats.speed = (_entityStats.speed+_entityStats.defSpeed)/1.5f;
         StartCoroutine(I_FlashPlayer());
     }
 

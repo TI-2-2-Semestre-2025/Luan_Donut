@@ -20,9 +20,11 @@ public class Level_Manager : MonoBehaviour
     public float distance = 1000;
     public float playerDistance = 0;
     public float terrainBlocksMulti = 5;
-    public int obsChance = 30;
+    public int powerUpChance;
+    public int coinChance;
 
     public GameObject GroundCollider;
+    public GameObject[] powerUps;
     public GameObject[] terrainBlocks;
     public GameObject[] scenarioBlocks;
 
@@ -43,10 +45,7 @@ public class Level_Manager : MonoBehaviour
         try
         {
             DistanceCheck();
-        }
-        catch
-        {
-        }
+        }catch {}
     }
 
     private void GenerateScenario()
@@ -72,14 +71,22 @@ public class Level_Manager : MonoBehaviour
         if (playerDistance + (terrainBlocksMulti * terrainBlocksDistance) >= (terrainBlocksDistance * terrainBlocksGenerated))
         {
             int index = Random.Range(0, terrainBlocks.Length);
+            int genPowerUp = Random.Range(1, 101);
+            int genCoins = Random.Range(1, 101);
+            
             GameObject terrain = Instantiate(terrainBlocks[index]);
             terrain.transform.position = Vector3.zero;
             terrain.transform.Translate(0, 0, terrainBlocksDistance * terrainBlocksGenerated);
-            
+            StreetBehavior terrainScript = terrain.GetComponent<StreetBehavior>();
+            if (genPowerUp <= powerUpChance)
+            {
+                GameObject go = powerUps[Random.Range(0, powerUps.Length)]; 
+                terrainScript.GeneratePowerUp(go);
+            }
+            if (genCoins <= coinChance) terrainScript.GenerateCoin();
             GenerateScenario();
+            
             terrainBlocksGenerated++;
-            
-            
 
             StartCoroutine(I_DeleteMap(terrain));
         }
