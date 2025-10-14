@@ -1,11 +1,13 @@
 using System.Collections.Generic;
 using System.Collections;
+using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
 public class UI_HUD : MonoBehaviour
 {
     public Slider distanceSlider;
+    public TextMeshProUGUI CoinsText;
     public GameObject Heart;
     public GameObject HeartHandle;
     public List<GameObject> Hearts;
@@ -29,31 +31,15 @@ public class UI_HUD : MonoBehaviour
         distanceSlider.value = finalValue;
     }
 
+    public void ChangeCoinValue(int value)
+    {
+        CoinsText.text = $"Coins: {value}";
+    }
+
     public void AddHeart()
     {
         if (Hearts.Count <= 3) Hearts.Add(Instantiate(Heart, HeartHandle.transform));
     }
-    
-    /*
-    private IEnumerator I_InitialHeart()
-    {
-        while (true)
-        {
-            GameObject Player = Game_Manager.Instance.Player.gameObject;
-            if (Player != null)
-            {
-                int qtdHeart = Player.GetComponent<Player_Collision>().hp;
-                Hearts = new List<GameObject>(qtdHeart);
-                for (int i = 0; i < qtdHeart; i++)
-                {
-                    GameObject life = Instantiate(Heart, HeartHandle.transform);
-                    Hearts.Add(life);
-                }
-                break;
-            }
-            yield return new WaitForEndOfFrame();
-        }
-    }*/
 
     public void RemoveHeart()
     {

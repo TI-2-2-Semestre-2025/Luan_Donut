@@ -3,11 +3,10 @@ using System.Collections;
 
 public class PowerUp : MonoBehaviour
 {
-    public Color objColor;
-    public float slowMotionSeconds;
+    public int coinValue;
     
-    public bool isSlowMotion;
     public bool isHealth;
+    public bool isCoin;
     
     private Renderer rend;
     
@@ -25,14 +24,22 @@ public class PowerUp : MonoBehaviour
     
     private void OnTriggerEnter(Collider Trigger)
     {
-        if (Trigger.gameObject.tag == "Player")
+        if (Trigger.gameObject.CompareTag("Player"))
         {
-            if (isHealth) Health();
+            if (isHealth) Health(Player: Trigger.gameObject);
+            if (isCoin) Coin(Player: Trigger.gameObject);
         }
     }
     
-    private void Health()
+    private void Health(GameObject Player)
     {
+        Player.GetComponent<Player_EntityStats>().PlayerCollectables.AddLife();
+        Destroy(gameObject);
+    }
+
+    private void Coin(GameObject Player)
+    {
+        Player.GetComponent<Player_EntityStats>().PlayerCollectables.AddCoin(coinValue);
         Destroy(gameObject);
     }
 }

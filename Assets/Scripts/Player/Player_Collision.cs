@@ -36,16 +36,6 @@ public class Player_Collision : MonoBehaviour
             Game_Manager.Instance.UI_HUD.RemoveHeart();
             _entityStats.hp--;
         }
-        
-        // Life Power Up
-        if (Trigger.gameObject.tag == "Vida")
-        {
-            if (_entityStats.hp < 3)
-            {
-                Game_Manager.Instance.UI_HUD.AddHeart();
-                _entityStats.hp++;
-            }
-        }
     }
 
 }

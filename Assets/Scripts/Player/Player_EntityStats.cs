@@ -9,6 +9,10 @@ public class Player_EntityStats : MonoBehaviour
     public float speed;
     public float speedGain;
     public float jumpForce;
+
+    public int coins;
+
+    public Player_Collectables PlayerCollectables;
     
     public void Start()
     {

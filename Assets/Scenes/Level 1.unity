@@ -723,13 +723,7 @@ MonoBehaviour:
   obsChance: 33
   GroundCollider: {fileID: 465482022}
   terrainBlocks:
-  - {fileID: 7760071839744435982, guid: 88322c81716ee2a4faa0464e7f49ac53, type: 3}
   - {fileID: 7760071839744435982, guid: ec1ae7d5a88403247a30a337a4396ce1, type: 3}
-  - {fileID: 7760071839744435982, guid: 286242bb71cfd954aa83dceb9c0385ca, type: 3}
-  - {fileID: 7760071839744435982, guid: fba1a21cb599f364e9c820e33d58834c, type: 3}
-  - {fileID: 7760071839744435982, guid: 46bafd10dc210b344810c3870442281d, type: 3}
-  - {fileID: 7760071839744435982, guid: 224d90e653efd8348ae478292da2fa5c, type: 3}
-  - {fileID: 7760071839744435982, guid: f0ac59e7535115547a7e15164ca6fabe, type: 3}
   scenarioBlocks:
   - {fileID: 5600716288820272155, guid: b1ac42f07db75de44b8ac73305514ee3, type: 3}
 --- !u!1 &1692839172
@@ -932,11 +926,23 @@ PrefabInstance:
       value: 112.19995
       objectReference: {fileID: 0}
     - target: {fileID: 2238459740140245246, guid: 95a76c21a0aad3c4b9a66391a97a0997, type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2238459740140245246, guid: 95a76c21a0aad3c4b9a66391a97a0997, type: 3}
       propertyPath: m_AnchorMax.y
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3119122435913215276, guid: 95a76c21a0aad3c4b9a66391a97a0997, type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3119122435913215276, guid: 95a76c21a0aad3c4b9a66391a97a0997, type: 3}
       propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3119122435913215276, guid: 95a76c21a0aad3c4b9a66391a97a0997, type: 3}
+      propertyPath: m_AnchorMin.x
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3261223066317317682, guid: 95a76c21a0aad3c4b9a66391a97a0997, type: 3}
@@ -1258,6 +1264,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: -7466419180104767762, guid: 1da7a27da0831074c82ddc33c150c445, type: 3}
+      propertyPath: hp
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 1408252051148793442, guid: 1da7a27da0831074c82ddc33c150c445, type: 3}
       propertyPath: m_Name
       value: Player
