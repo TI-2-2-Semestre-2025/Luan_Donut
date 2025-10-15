@@ -39,7 +39,11 @@ public class Player_Movement : MonoBehaviour
     
     public void Jump()
     {
-        if (_characterController.isGrounded) yMovement = _entityStats.jumpForce + gravityForce;
+        if (transform.position.y <= 0.5f)
+        {
+            yMovement = 0;
+            yMovement = _entityStats.jumpForce + gravityForce;
+        }
     }
 
     private void Z_Movement()

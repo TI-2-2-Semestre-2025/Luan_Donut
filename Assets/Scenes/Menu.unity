@@ -677,7 +677,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isPaused: 0
-  laneOffset: 2.4
+  laneOffset: 3
   LevelManager: {fileID: 0}
   MenuManager: {fileID: 0}
   CanvasOptions: {fileID: 0}
