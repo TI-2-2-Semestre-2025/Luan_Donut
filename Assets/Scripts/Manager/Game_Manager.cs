@@ -41,6 +41,12 @@ public class Game_Manager : MonoBehaviour
         else Time.timeScale = 1;
     }
 
+    public void PauseChange()
+    {
+        isPaused = !isPaused;
+        PauseGame(isPaused);
+    }
+
     public void ExitGame()
     {
         Debug.Log("Saiu");

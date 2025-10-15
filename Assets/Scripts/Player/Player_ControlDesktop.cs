@@ -29,5 +29,11 @@ public class Player_ControlDesktop : MonoBehaviour
         {
             playerMovement.Jump();
         }
+        
+        //Pause
+        if (Input.GetKeyDown(KeyCode.Escape))
+        {
+            Game_Manager.Instance.PauseChange();
+        }
     }
 }
