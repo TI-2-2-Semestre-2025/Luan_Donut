@@ -50,9 +50,10 @@ public class Level_Manager : MonoBehaviour
 
     private void GenerateScenario()
     {
-        int index = Random.Range(0, scenarioBlocks.Length);
-        GameObject ScenarioRight = Instantiate(scenarioBlocks[index]);
-        GameObject ScenarioLeft = Instantiate(scenarioBlocks[index]);
+        int index1 = Random.Range(0, scenarioBlocks.Length);
+        int index2 = Random.Range(0, scenarioBlocks.Length);
+        GameObject ScenarioRight = Instantiate(scenarioBlocks[index1]);
+        GameObject ScenarioLeft = Instantiate(scenarioBlocks[index2]);
         
         ScenarioRight.transform.position = Vector3.zero;
         ScenarioRight.transform.Translate(0, 0, terrainBlocksDistance * terrainBlocksGenerated);

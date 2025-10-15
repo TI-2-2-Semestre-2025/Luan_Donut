@@ -670,8 +670,10 @@ MonoBehaviour:
   - {fileID: 24540566841516816, guid: 94a24436b80491342b3c3690bc489214, type: 3}
   terrainBlocks:
   - {fileID: 7760071839744435982, guid: ec1ae7d5a88403247a30a337a4396ce1, type: 3}
+  - {fileID: 7760071839744435982, guid: c39a903477050fe41a8c994cc655be4a, type: 3}
   scenarioBlocks:
   - {fileID: 5600716288820272155, guid: b1ac42f07db75de44b8ac73305514ee3, type: 3}
+  - {fileID: 1667074578495853039, guid: 35eee18c614010a43a8a0149cf6891a8, type: 3}
 --- !u!1 &1692839172
 GameObject:
   m_ObjectHideFlags: 0
