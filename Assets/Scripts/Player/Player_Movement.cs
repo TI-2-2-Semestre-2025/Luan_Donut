@@ -39,13 +39,13 @@ public class Player_Movement : MonoBehaviour
     
     public void Jump()
     {
-        if (_characterController.isGrounded) yMovement += _entityStats.jumpForce + gravityForce;
+        if (_characterController.isGrounded) yMovement = _entityStats.jumpForce + gravityForce;
     }
 
     private void Z_Movement()
     {
         _characterController.Move(_entityStats.speed * Time.deltaTime * transform.forward);
-        _entityStats.speed += _entityStats.speedGain * Time.deltaTime;
+        if (_entityStats.speed < _entityStats.maxSpeed) _entityStats.speed += _entityStats.speedGain * Time.deltaTime;
     }
 
     // 1 => Right / -1 => Left
@@ -108,7 +108,7 @@ public class Player_Movement : MonoBehaviour
     
     public void Hit()
     {
-        _entityStats.speed = (_entityStats.speed+_entityStats.defSpeed)/1.5f;
+        _entityStats.speed = (_entityStats.speed-_entityStats.initialSpeed)/1.5f + _entityStats.initialSpeed;
         StartCoroutine(I_FlashPlayer());
     }
 

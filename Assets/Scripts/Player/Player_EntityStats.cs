@@ -5,8 +5,9 @@ public class Player_EntityStats : MonoBehaviour
     public float hp;
     public float changeLaneSeconds;
     public float rollSeconds;
-    public float defSpeed;
+    public float initialSpeed;
     public float speed;
+    public float maxSpeed;
     public float speedGain;
     public float jumpForce;
 
@@ -16,7 +17,7 @@ public class Player_EntityStats : MonoBehaviour
     
     public void Start()
     {
-        speed = defSpeed;
+        speed = initialSpeed;
         Game_Manager.Instance.Player = this;
     }
 }
