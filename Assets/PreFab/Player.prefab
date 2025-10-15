@@ -98,9 +98,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 977dc7192639bc14c8f4bf1c0e174140, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  lane: 0
-  gravityForce: 15
   playerModel: {fileID: 2758623191485543484}
+  lane: 0
+  playerMass: 0
+  gravityForce: 15
 --- !u!114 &7910569793230518529
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -334,6 +335,10 @@ PrefabInstance:
     - target: {fileID: -8679921383154817045, guid: 95fe6a72f6e985a408f2eca44fdcbc27, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -4300518074844961910, guid: 95fe6a72f6e985a408f2eca44fdcbc27, type: 3}
+      propertyPath: m_Enabled
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: -4300518074844961910, guid: 95fe6a72f6e985a408f2eca44fdcbc27, type: 3}
       propertyPath: 'm_Materials.Array.data[0]'

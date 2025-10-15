@@ -3,13 +3,18 @@ using UnityEngine;
 
 public class Player_Movement : MonoBehaviour
 {
+    public GameObject playerModel;
     public int lane=0;
+    public float playerMass;
     public float gravityForce;
+
+    private float yMovement = 0;
+    private float JumpForceRemain = 0;
     private bool roll = false;
     
     private CharacterController _characterController;
     private Player_EntityStats _entityStats;
-    public GameObject playerModel;
+    
 
     private void Start()
     {
@@ -26,7 +31,15 @@ public class Player_Movement : MonoBehaviour
 
     private void Gravity()
     {
-        _characterController.Move(gravityForce * Time.deltaTime * -transform.up);
+        if (_characterController.isGrounded) yMovement = 0;
+        yMovement += -(gravityForce * playerMass * Time.deltaTime);
+        
+        _characterController.Move(yMovement * Time.deltaTime * transform.up);
+    }
+    
+    public void Jump()
+    {
+        if (_characterController.isGrounded) yMovement += _entityStats.jumpForce + gravityForce;
     }
 
     private void Z_Movement()
@@ -65,63 +78,49 @@ public class Player_Movement : MonoBehaviour
     }
     */
 
-    public void Jump()
-    {
-        /*
-        if (transform.position.y <= 1.1)
-        {
-            _characterController.AddForce(_entityStats.jumpForce * transform.up, ForceMode.Impulse);
-        }*/
-    }
-
     public void Roll()
     {
-        /*
         if (!roll)
         {
-            roll = true;
             StartCoroutine(I_Roll());
-        }*/
+        }
     }
-    /*
-
+    
     private IEnumerator I_Roll()
     {
         int multi = 3;
-        float defHeight = _collider.height;
-        Vector3 defCenter = _collider.center;
-
-        _collider.height /= multi;
-        _collider.center -= new Vector3(0, _collider.height/multi, 0);
-        playerModel.transform.Rotate(90,0,0);
-        playerModel.transform.Translate(0,-offset,0, Space.World);
+        float defHeight = _characterController.height;
+        Vector3 defCenter = _characterController.center;
+        
+        roll = true;
+        _characterController.height /= multi;
+        _characterController.center -= new Vector3(0, _characterController.height/multi, 0);
+        playerModel.transform.localScale = new Vector3(1, 0.5f, 1);
         
         yield return new WaitForSeconds(_entityStats.rollSeconds);
         
-        playerModel.transform.Translate(0,offset,0, Space.World);
-        playerModel.transform.Rotate(-90,0,0);
-        _collider.height = defHeight;
-        _collider.center = defCenter;
+        _characterController.height = defHeight;
+        _characterController.center = defCenter;
+        playerModel.transform.localScale = new Vector3(1, 1, 1);
         roll = false;
-    }*/
+    }
     
     
     public void Hit()
     {
-        /*
         _entityStats.speed = (_entityStats.speed+_entityStats.defSpeed)/1.5f;
-        StartCoroutine(I_FlashPlayer());*/
+        StartCoroutine(I_FlashPlayer());
     }
 
     private IEnumerator I_FlashPlayer()
     {
-        Vector3 dposition = playerModel.transform.position;
+        MeshRenderer[] meshs = GetComponentsInChildren<MeshRenderer>();
         
         for (int i = 0; i < 5; i++)
         {
-            playerModel.transform.Translate(Vector3.up * 1000);
+            for (int j = 0; j < meshs.Length; j++) meshs[j].enabled = false;
             yield return new WaitForSeconds(0.2f);
-            playerModel.transform.Translate(Vector3.up * -1000);
+            for (int j = 0; j < meshs.Length; j++) meshs[j].enabled = true;
             yield return new WaitForSeconds(0.2f);
         }
     }
