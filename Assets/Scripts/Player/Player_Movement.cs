@@ -20,6 +20,8 @@ public class Player_Movement : MonoBehaviour
     {
         _entityStats = GetComponent<Player_EntityStats>();
         _characterController = GetComponent<CharacterController>();
+
+        _entityStats.PlayerMovement = this;
     }
 
     private void Update()
@@ -99,6 +101,7 @@ public class Player_Movement : MonoBehaviour
         roll = true;
         _characterController.height /= multi;
         _characterController.center -= new Vector3(0, _characterController.height/multi, 0);
+        yMovement -= _entityStats.jumpForce + gravityForce;
         playerModel.transform.localScale = new Vector3(1, 0.5f, 1);
         
         yield return new WaitForSeconds(_entityStats.rollSeconds);

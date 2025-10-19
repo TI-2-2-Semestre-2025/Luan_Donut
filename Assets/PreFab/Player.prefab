@@ -86,6 +86,8 @@ MonoBehaviour:
   speedGain: 0.25
   jumpForce: 0
   coins: 0
+  coinsToBonus: 10
+  coinsBonusSeconds: 3
   PlayerCollectables: {fileID: 0}
 --- !u!114 &3400610459743747314
 MonoBehaviour:
@@ -152,6 +154,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 84c35c1f3eaac5a43abd7fa1ac781de8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  coinBonusMaps: []
 --- !u!1 &6091739321181776115
 GameObject:
   m_ObjectHideFlags: 0

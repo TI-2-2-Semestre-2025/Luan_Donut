@@ -7,7 +7,7 @@ using UnityEngine.UI;
 public class UI_HUD : MonoBehaviour
 {
     public Slider distanceSlider;
-    public TextMeshProUGUI CoinsText;
+    public Slider coinSlider;
     public GameObject Heart;
     public GameObject HeartHandle;
     public List<GameObject> Hearts;
@@ -32,9 +32,9 @@ public class UI_HUD : MonoBehaviour
         distanceSlider.value = finalValue;
     }
 
-    public void ChangeCoinValue(int value)
+    public void ChangeCoinValue(float value)
     {
-        CoinsText.text = $"Coins: {value}";
+        coinSlider.value = value;
     }
 
     public void AddHeart()

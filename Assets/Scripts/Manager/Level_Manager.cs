@@ -39,15 +39,46 @@ public class Level_Manager : MonoBehaviour
 
     private void Update()
     {
-        GenerateStreet();
+        //Scenaro Generator
+        if (playerDistance + (terrainBlocksMulti * terrainBlocksDistance) >= (terrainBlocksDistance * terrainBlocksGenerated)) MapGeneration();
+        
+        
         GroundColliderControl();
-
         try
         {
             DistanceCheck();
         }catch {}
     }
 
+    public void MapGeneration()
+    {
+        GenerateStreet();
+        GenerateScenario();
+        terrainBlocksGenerated++;
+    }
+    
+
+    private void GenerateStreet()
+    {
+        GameObject[] terrainsToUse = terrainBlocks;
+        
+        int index = Random.Range(0, terrainBlocks.Length);
+        int genPowerUp = Random.Range(1, 101);
+        int genCoins = Random.Range(1, 101);
+        
+        GameObject terrain = Instantiate(terrainsToUse[index]);
+        terrain.transform.position = Vector3.zero;
+        terrain.transform.Translate(0, 0, terrainBlocksDistance * terrainBlocksGenerated);
+        StreetBehavior terrainScript = terrain.GetComponent<StreetBehavior>();
+        if (genPowerUp <= powerUpChance)
+        {
+            GameObject go = powerUps[Random.Range(0, powerUps.Length)]; 
+            terrainScript.GeneratePowerUp(go);
+        }
+        if (genCoins <= coinChance) terrainScript.GenerateCoin();
+        
+        StartCoroutine(I_DeleteMap(terrain));
+    }
     private void GenerateScenario()
     {
         int index1 = Random.Range(0, scenarioBlocks.Length);
@@ -65,32 +96,6 @@ public class Level_Manager : MonoBehaviour
         
         StartCoroutine(I_DeleteMap(ScenarioLeft));
         StartCoroutine(I_DeleteMap(ScenarioRight));
-    }
-
-    private void GenerateStreet()
-    {
-        if (playerDistance + (terrainBlocksMulti * terrainBlocksDistance) >= (terrainBlocksDistance * terrainBlocksGenerated))
-        {
-            int index = Random.Range(0, terrainBlocks.Length);
-            int genPowerUp = Random.Range(1, 101);
-            int genCoins = Random.Range(1, 101);
-            
-            GameObject terrain = Instantiate(terrainBlocks[index]);
-            terrain.transform.position = Vector3.zero;
-            terrain.transform.Translate(0, 0, terrainBlocksDistance * terrainBlocksGenerated);
-            StreetBehavior terrainScript = terrain.GetComponent<StreetBehavior>();
-            if (genPowerUp <= powerUpChance)
-            {
-                GameObject go = powerUps[Random.Range(0, powerUps.Length)]; 
-                terrainScript.GeneratePowerUp(go);
-            }
-            if (genCoins <= coinChance) terrainScript.GenerateCoin();
-            GenerateScenario();
-            
-            terrainBlocksGenerated++;
-
-            StartCoroutine(I_DeleteMap(terrain));
-        }
     }
 
     private IEnumerator I_DeleteMap(GameObject obj)

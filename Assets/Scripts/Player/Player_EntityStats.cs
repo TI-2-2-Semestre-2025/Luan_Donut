@@ -10,10 +10,13 @@ public class Player_EntityStats : MonoBehaviour
     public float maxSpeed;
     public float speedGain;
     public float jumpForce;
-
     public int coins;
+    public int coinsToBonus;
+    public int coinsBonusSeconds;
+    
 
     public Player_Collectables PlayerCollectables;
+    public Player_Movement PlayerMovement;
     
     public void Start()
     {
