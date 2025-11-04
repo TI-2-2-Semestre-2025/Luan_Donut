@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5657260157949839490}
   - component: {fileID: 7276028369023202914}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: GroundCollider
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -42,7 +42,7 @@ BoxCollider:
   m_Material: {fileID: 0}
   m_IncludeLayers:
     serializedVersion: 2
-    m_Bits: 8
+    m_Bits: 0
   m_ExcludeLayers:
     serializedVersion: 2
     m_Bits: 0

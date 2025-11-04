@@ -19,6 +19,7 @@ public class Level_Manager : MonoBehaviour
 
     public float distance = 1000;
     public float playerDistance = 0;
+    public int terrainBlocksDistance = 25;
     public float terrainBlocksMulti = 5;
     public int powerUpChance;
     public int coinChance;
@@ -28,7 +29,7 @@ public class Level_Manager : MonoBehaviour
     public GameObject[] terrainBlocks;
     public GameObject[] scenarioBlocks;
 
-    private int terrainBlocksDistance = 25;
+    
     private float terrainBlocksGenerated = 1;
     private GameObject player;
 
