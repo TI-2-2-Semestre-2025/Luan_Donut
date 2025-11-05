@@ -17,13 +17,17 @@ public class Level_Manager : MonoBehaviour
         }
     }
 
+    //  attributes level-based changes
+    public float fogQuantity;
     public float distance = 1000;
-    public float playerDistance = 0;
-    public int terrainBlocksDistance = 25;
-    public float terrainBlocksMulti = 5;
     public int powerUpChance;
     public int coinChance;
-
+    
+    
+    public float playerDistance = 0;
+    public int terrainBlocksDistance;
+    public float terrainBlocksMulti = 5;
+    
     public GameObject GroundCollider;
     public GameObject[] powerUps;
     public GameObject[] terrainBlocks;
@@ -40,9 +44,8 @@ public class Level_Manager : MonoBehaviour
 
     private void Update()
     {
-        //Scenaro Generator
+        //Scenario Generator
         if (playerDistance + (terrainBlocksMulti * terrainBlocksDistance) >= (terrainBlocksDistance * terrainBlocksGenerated)) MapGeneration();
-        
         
         GroundColliderControl();
         try
@@ -101,7 +104,12 @@ public class Level_Manager : MonoBehaviour
 
     private IEnumerator I_DeleteMap(GameObject obj)
     {
-        yield return new WaitForSeconds(20);
+        bool waiting = true;
+        while (waiting)
+        {
+            yield return new WaitForEndOfFrame();
+            if (playerDistance-80 > obj.transform.position.z) waiting = false;
+        }
         Destroy(obj);
     }
 

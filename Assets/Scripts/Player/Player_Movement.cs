@@ -9,7 +9,6 @@ public class Player_Movement : MonoBehaviour
     public float gravityForce;
 
     private float yMovement = 0;
-    private float JumpForceRemain = 0;
     private bool roll = false;
     
     private CharacterController _characterController;
