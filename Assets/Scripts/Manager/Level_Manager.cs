@@ -1,5 +1,6 @@
 using UnityEngine;
 using System.Collections;
+using UnityEngine.SceneManagement;
 
 public class Level_Manager : MonoBehaviour
 {
@@ -22,6 +23,7 @@ public class Level_Manager : MonoBehaviour
     public float distance = 1000;
     public int powerUpChance;
     public int coinChance;
+    public int level;
     
     
     public float playerDistance = 0;
@@ -32,7 +34,6 @@ public class Level_Manager : MonoBehaviour
     public GameObject[] powerUps;
     public GameObject[] terrainBlocks;
     public GameObject[] scenarioBlocks;
-
     
     private float terrainBlocksGenerated = 1;
     private GameObject player;
@@ -40,6 +41,7 @@ public class Level_Manager : MonoBehaviour
     private void Start()
     {
         Game_Manager.Instance.LevelManager = this;
+        Game_Manager.Instance.currentLevel = level;
     }
 
     private void Update()
@@ -119,6 +121,7 @@ public class Level_Manager : MonoBehaviour
         if (playerDistance >= distance)
         {
             Game_Manager.Instance.ChangeSceneByIndex(2);
+                
         }
     }
 

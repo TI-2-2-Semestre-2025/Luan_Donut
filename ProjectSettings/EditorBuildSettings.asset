@@ -12,6 +12,9 @@ EditorBuildSettings:
     path: Assets/Scenes/Level 1.unity
     guid: a116e83920ae0494d923893e4491d0bb
   - enabled: 1
+    path: Assets/Scenes/Level 2.unity
+    guid: eaf811ab6facc6f4f9c45a2a253659e9
+  - enabled: 1
     path: Assets/Scenes/zVitoria.unity
     guid: d1b40e48dd4fa8b42aca5d6f74118a28
   - enabled: 1

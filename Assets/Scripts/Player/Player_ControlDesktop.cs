@@ -29,11 +29,17 @@ public class Player_ControlDesktop : MonoBehaviour
         {
             playerMovement.Jump();
         }
-        
+
         //Pause
         if (Input.GetKeyDown(KeyCode.Escape))
         {
             Game_Manager.Instance.PauseChange();
+        }
+        
+        //Game Cheats
+        if (Input.GetKeyDown(KeyCode.CapsLock))
+        {
+            Game_Manager.Instance.ChangeLevel(Game_Manager.Instance.currentLevel+1);
         }
     }
 }

@@ -21,6 +21,9 @@ public class Game_Manager : MonoBehaviour
 
     public bool isPaused;
     public float laneOffset = 2.4f;
+    public int currentLevel;
+    private int[] levels = {1, 2};
+
 
     public Level_Manager LevelManager;
     public Menu_Manager MenuManager;
@@ -51,6 +54,25 @@ public class Game_Manager : MonoBehaviour
     {
         Debug.Log("Saiu");
         Application.Quit();
+    }
+
+    public void ChangeLevel(int lvl)
+    {
+        Time.timeScale = 1;
+
+        int sceneindex = 10;
+        try
+        {
+
+            currentLevel = lvl;
+            sceneindex = levels[lvl - 1];
+        }
+        catch
+        {
+            currentLevel = 1;
+            sceneindex = levels[currentLevel - 1];
+        }
+        StartCoroutine(I_ChangeSceneByIndex(sceneindex));
     }
 
     // Change Scene

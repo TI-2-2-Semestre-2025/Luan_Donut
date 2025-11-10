@@ -275,6 +275,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   isPaused: 0
   laneOffset: 3
+  currentLevel: 0
   LevelManager: {fileID: 0}
   MenuManager: {fileID: 0}
   CanvasOptions: {fileID: 0}
@@ -776,12 +777,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ed1a6852d5ae95a41a815e643f9284c6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  fogQuantity: 0
   distance: 2000
+  powerUpChance: 10
+  coinChance: 90
+  level: 1
   playerDistance: 0
   terrainBlocksDistance: 80
   terrainBlocksMulti: 10
-  powerUpChance: 10
-  coinChance: 90
   GroundCollider: {fileID: 465482022}
   powerUps:
   - {fileID: 24540566841516816, guid: 94a24436b80491342b3c3690bc489214, type: 3}

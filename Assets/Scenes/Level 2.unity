@@ -275,6 +275,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   isPaused: 0
   laneOffset: 3
+  currentLevel: 0
   LevelManager: {fileID: 0}
   MenuManager: {fileID: 0}
   CanvasOptions: {fileID: 0}
@@ -776,12 +777,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ed1a6852d5ae95a41a815e643f9284c6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  fogQuantity: 0
   distance: 2000
+  powerUpChance: 10
+  coinChance: 90
+  level: 2
   playerDistance: 0
   terrainBlocksDistance: 80
   terrainBlocksMulti: 10
-  powerUpChance: 10
-  coinChance: 90
   GroundCollider: {fileID: 465482022}
   powerUps:
   - {fileID: 24540566841516816, guid: 94a24436b80491342b3c3690bc489214, type: 3}
@@ -789,14 +792,6 @@ MonoBehaviour:
   - {fileID: 7760071839744435982, guid: 9184a7d3e8e66a841b8e71a4f2f81692, type: 3}
   scenarioBlocks:
   - {fileID: 8339869830220433532, guid: 2246eb8753eb95341b6b777132c59e8f, type: 3}
-  - {fileID: 7576421805733152264, guid: 9f8e982972061d34ea5734c397fdf7c7, type: 3}
-  - {fileID: 2678237445819007881, guid: d18a89beed9d5ee4399d50031e51544e, type: 3}
-  - {fileID: 1688005509765656776, guid: e00ab1babbd636e4bbb7789fba2c3763, type: 3}
-  - {fileID: 8508075479703828231, guid: 3ef8d0b5221788b42b13134e8fee2f60, type: 3}
-  - {fileID: 4678623705086581993, guid: 7f54d5d675baf4642a3ef40412e2f8eb, type: 3}
-  - {fileID: 1248320893880149460, guid: 5770b69c50c544843976c46d4813abba, type: 3}
-  - {fileID: 8365280152024150318, guid: bd10d77326a245c4e80ae4e16529cab3, type: 3}
-  - {fileID: 5364730164544157798, guid: 52d89c461ea757c478881200d52f4ff0, type: 3}
 --- !u!1 &1692839172
 GameObject:
   m_ObjectHideFlags: 0

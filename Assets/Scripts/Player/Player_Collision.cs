@@ -8,26 +8,26 @@ public class Player_Collision : MonoBehaviour
     void Start()
     {
         _entityStats = GetComponent<Player_EntityStats>();
-        StartCoroutine(wait());
+        StartCoroutine(waitUI());
     }
 
-    IEnumerator wait()
+    IEnumerator waitUI()
     {
-        yield return new WaitForEndOfFrame();
-        for (int i = 0; i < _entityStats.hp; i++) Game_Manager.Instance.UI_HUD.AddHeart();
-    }
-
-    
-    void FixedUpdate()
-    {
-        if (_entityStats.hp <= 0)
+        bool waiting = true;
+        while (waiting)
         {
-            Game_Manager.Instance.ChangeSceneByIndex(3);
+            try
+            {
+                for (int i = 0; i < _entityStats.hp; i++) Game_Manager.Instance.UI_HUD.AddHeart();
+                waiting = false;
+            }
+            catch { }
+            yield return new WaitForEndOfFrame();
         }
+        
     }
 
     private void OnTriggerEnter(Collider Trigger)
-
     {
         // Damage
         if (Trigger.gameObject.tag == "Obstaculo")
@@ -35,6 +35,11 @@ public class Player_Collision : MonoBehaviour
             gameObject.GetComponent<Player_Movement>().Hit();
             Game_Manager.Instance.UI_HUD.RemoveHeart();
             _entityStats.hp--;
+
+            if (_entityStats.hp <= 0)
+            {
+                Game_Manager.Instance.ChangeSceneByIndex(3);
+            }
         }
     }
 
