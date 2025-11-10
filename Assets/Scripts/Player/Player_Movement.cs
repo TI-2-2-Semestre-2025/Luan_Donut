@@ -44,6 +44,7 @@ public class Player_Movement : MonoBehaviour
         {
             yMovement = 0;
             yMovement = _entityStats.jumpForce + gravityForce;
+            roll = false;
         }
     }
 
@@ -102,8 +103,13 @@ public class Player_Movement : MonoBehaviour
         _characterController.center -= new Vector3(0, _characterController.height/multi, 0);
         yMovement -= _entityStats.jumpForce + gravityForce;
         playerModel.transform.localScale = new Vector3(1, 0.5f, 1);
-        
-        yield return new WaitForSeconds(_entityStats.rollSeconds);
+
+        int quantity = 25;
+        for (int i=0; i<quantity; i++)
+        {
+            yield return new WaitForSeconds(_entityStats.rollSeconds / quantity);
+            if (!roll) i = quantity;
+        }
         
         _characterController.height = defHeight;
         _characterController.center = defCenter;
