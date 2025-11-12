@@ -3,10 +3,12 @@ using UnityEngine;
 public class Player_ControlDesktop : MonoBehaviour
 {
     private Player_Movement playerMovement;
+    private Player_EntityStats _EntityStats;
 
     private void Start()
     {
         playerMovement = GetComponent<Player_Movement>();
+        _EntityStats = GetComponent<Player_EntityStats>();
     }
 
     private void Update()
@@ -40,6 +42,10 @@ public class Player_ControlDesktop : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.CapsLock))
         {
             Game_Manager.Instance.ChangeLevel(Game_Manager.Instance.currentLevel+1);
+        }
+        if (Input.GetKeyDown(KeyCode.Tab))
+        {
+            _EntityStats.InfHealth();
         }
     }
 }
