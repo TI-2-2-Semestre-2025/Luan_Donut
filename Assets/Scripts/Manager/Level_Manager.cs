@@ -47,7 +47,12 @@ public class Level_Manager : MonoBehaviour
     private void Update()
     {
         //Scenario Generator
+
+        /*
         if (playerDistance + (terrainBlocksMulti * terrainBlocksDistance) >= (terrainBlocksDistance * terrainBlocksGenerated)) MapGeneration();
+        */
+
+        if (terrainBlocksGenerated < (distance / terrainBlocksDistance)+1) MapGeneration();
         
         GroundColliderControl();
         try
