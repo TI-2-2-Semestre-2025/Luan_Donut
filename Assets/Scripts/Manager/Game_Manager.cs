@@ -27,6 +27,7 @@ public class Game_Manager : MonoBehaviour
 
     public Level_Manager LevelManager;
     public Menu_Manager MenuManager;
+    public Audio_Manager AudioManager;
 
     public GameObject CanvasOptions;
     public UI_HUD UI_HUD;
