@@ -17,10 +17,19 @@ public class Player_EntityStats : MonoBehaviour
 
     public Player_Collectables PlayerCollectables;
     public Player_Movement PlayerMovement;
-    
+
     public void Start()
     {
         speed = initialSpeed;
         Game_Manager.Instance.Player = this;
+    }
+    
+    public void InfHealth()
+    {
+        hp = 1000;
+        for (int i=0; i<3; i++)
+        {
+            try { Game_Manager.Instance.UI_HUD.RemoveHeart(); } catch { }
+        }
     }
 }
