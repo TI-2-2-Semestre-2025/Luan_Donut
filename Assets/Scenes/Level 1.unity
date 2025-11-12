@@ -334,8 +334,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   isPaused: 0
   laneOffset: 3
+  currentLevel: 0
   LevelManager: {fileID: 0}
   MenuManager: {fileID: 0}
+  AudioManager: {fileID: 0}
   CanvasOptions: {fileID: 0}
   UI_HUD: {fileID: 0}
   UI_Pause: {fileID: 0}
@@ -429,7 +431,7 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: -2857102609173817016, guid: 9e89280e3713d85498f2c53c550e0d07, type: 2}
-  m_audioClip: {fileID: 0}
+  m_audioClip: {fileID: 8300000, guid: c90543faec9ca0c4eaa7d5a92676fa4e, type: 3}
   m_Resource: {fileID: 8300000, guid: c90543faec9ca0c4eaa7d5a92676fa4e, type: 3}
   m_PlayOnAwake: 1
   m_Volume: 1
@@ -973,6 +975,7 @@ MonoBehaviour:
   distance: 2000
   powerUpChance: 10
   coinChance: 90
+  level: 0
   playerDistance: 0
   terrainBlocksDistance: 80
   terrainBlocksMulti: 10
@@ -980,7 +983,14 @@ MonoBehaviour:
   powerUps:
   - {fileID: 24540566841516816, guid: 94a24436b80491342b3c3690bc489214, type: 3}
   terrainBlocks:
+  - {fileID: 7760071839744435982, guid: 468aefdaa3701964e875aeaac9b80989, type: 3}
+  - {fileID: 7760071839744435982, guid: 8819e1a5cdb7b4749ab2d87f9896bcc9, type: 3}
   - {fileID: 7760071839744435982, guid: 9184a7d3e8e66a841b8e71a4f2f81692, type: 3}
+  - {fileID: 7760071839744435982, guid: c35726390938f6f45a31a25d2e9813e1, type: 3}
+  - {fileID: 7760071839744435982, guid: f2a53a332baf42b46a894a40316e1a3e, type: 3}
+  - {fileID: 7760071839744435982, guid: 4c18a56a5f87c5c49a50a772ba5be226, type: 3}
+  - {fileID: 7760071839744435982, guid: 4c18a56a5f87c5c49a50a772ba5be226, type: 3}
+  - {fileID: 7760071839744435982, guid: 853fb39b662ea1c47b780360387ecef7, type: 3}
   scenarioBlocks:
   - {fileID: 8339869830220433532, guid: 2246eb8753eb95341b6b777132c59e8f, type: 3}
   - {fileID: 7576421805733152264, guid: 9f8e982972061d34ea5734c397fdf7c7, type: 3}
@@ -1033,7 +1043,7 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: -928449899857776778, guid: 9e89280e3713d85498f2c53c550e0d07, type: 2}
-  m_audioClip: {fileID: 0}
+  m_audioClip: {fileID: 8300000, guid: 87c2c5cd00187cf418537649710c3bef, type: 3}
   m_Resource: {fileID: 8300000, guid: 87c2c5cd00187cf418537649710c3bef, type: 3}
   m_PlayOnAwake: 1
   m_Volume: 0.242
@@ -1314,7 +1324,7 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: -928449899857776778, guid: 9e89280e3713d85498f2c53c550e0d07, type: 2}
-  m_audioClip: {fileID: 0}
+  m_audioClip: {fileID: 8300000, guid: 6549ccabb159f0e4ab346b45a0fb6876, type: 3}
   m_Resource: {fileID: 8300000, guid: 6549ccabb159f0e4ab346b45a0fb6876, type: 3}
   m_PlayOnAwake: 1
   m_Volume: 0.342
