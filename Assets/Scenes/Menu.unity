@@ -397,6 +397,7 @@ MonoBehaviour:
   m_ScreenCoordScaleBias: {x: 0, y: 0, z: 0, w: 0}
   m_RequiresDepthTexture: 0
   m_RequiresColorTexture: 0
+  m_Version: 2
   m_TaaSettings:
     m_Quality: 3
     m_FrameInfluence: 0.1
@@ -404,7 +405,6 @@ MonoBehaviour:
     m_MipBias: 0
     m_VarianceClampScale: 0.9
     m_ContrastAdaptiveSharpening: 0
-  m_Version: 2
 --- !u!1 &353502731
 GameObject:
   m_ObjectHideFlags: 0
@@ -447,7 +447,7 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: -2857102609173817016, guid: 9e89280e3713d85498f2c53c550e0d07, type: 2}
-  m_audioClip: {fileID: 0}
+  m_audioClip: {fileID: 8300000, guid: 1f4559e0460eadf408102ec79ed1bd76, type: 3}
   m_Resource: {fileID: 8300000, guid: 1f4559e0460eadf408102ec79ed1bd76, type: 3}
   m_PlayOnAwake: 1
   m_Volume: 0.17
@@ -644,23 +644,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 474bcb49853aa07438625e644c072ee6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  m_Version: 4
   m_UsePipelineSettings: 1
   m_AdditionalLightsShadowResolutionTier: 2
+  m_LightLayerMask: 1
+  m_RenderingLayers: 1
   m_CustomShadowLayers: 0
+  m_ShadowLayerMask: 1
+  m_ShadowRenderingLayers: 1
   m_LightCookieSize: {x: 1, y: 1}
   m_LightCookieOffset: {x: 0, y: 0}
   m_SoftShadowQuality: 1
-  m_RenderingLayersMask:
-    serializedVersion: 0
-    m_Bits: 1
-  m_ShadowRenderingLayersMask:
-    serializedVersion: 0
-    m_Bits: 1
-  m_Version: 4
-  m_LightLayerMask: 1
-  m_ShadowLayerMask: 1
-  m_RenderingLayers: 1
-  m_ShadowRenderingLayers: 1
 --- !u!1 &491386502
 GameObject:
   m_ObjectHideFlags: 0
@@ -814,8 +808,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   isPaused: 0
   laneOffset: 3
+  currentLevel: 0
   LevelManager: {fileID: 0}
   MenuManager: {fileID: 0}
+  AudioManager: {fileID: 0}
   CanvasOptions: {fileID: 0}
   UI_HUD: {fileID: 0}
   UI_Pause: {fileID: 0}
@@ -895,8 +891,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: OPTIONS
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: e3b037c3a1c1b804d9f5f37308a3d578, type: 2}
-  m_sharedMaterial: {fileID: 2516822608741789728, guid: e3b037c3a1c1b804d9f5f37308a3d578, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -1137,8 +1133,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: EXIT
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: e3b037c3a1c1b804d9f5f37308a3d578, type: 2}
-  m_sharedMaterial: {fileID: 2516822608741789728, guid: e3b037c3a1c1b804d9f5f37308a3d578, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -1536,8 +1532,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: PLAY
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: e3b037c3a1c1b804d9f5f37308a3d578, type: 2}
-  m_sharedMaterial: {fileID: 2516822608741789728, guid: e3b037c3a1c1b804d9f5f37308a3d578, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
