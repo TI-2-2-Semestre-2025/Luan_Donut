@@ -8,6 +8,7 @@ public class UI_HUD : MonoBehaviour
 {
     public Slider distanceSlider;
     public Slider coinSlider;
+    public GameObject CoinMagnet;
     public GameObject Heart;
     public GameObject HeartHandle;
     public List<GameObject> Hearts;
@@ -18,6 +19,8 @@ public class UI_HUD : MonoBehaviour
         Game_Manager.Instance.UI_HUD = this;
         Hearts = new List<GameObject>(capacity: 3);
         ChangeCoinValue(0);
+
+        CoinMagnet.SetActive(false);
     }
 
     public void Pause()
@@ -47,5 +50,10 @@ public class UI_HUD : MonoBehaviour
         int heartToDestroy = Hearts.Count - 1;
         Destroy(Hearts[heartToDestroy]);
         Hearts.RemoveAt(heartToDestroy);
+    }
+
+    public void CoinMagnetManage(bool active=false)
+    {
+        CoinMagnet.SetActive(active);
     }
 }

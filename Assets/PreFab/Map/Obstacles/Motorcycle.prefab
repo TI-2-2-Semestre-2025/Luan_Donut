@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 4323934837804477056}
   - component: {fileID: 6062365380552849567}
   - component: {fileID: 7055243595154940264}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Motorcycle
   m_TagString: Obstaculo
   m_Icon: {fileID: 0}
@@ -122,6 +122,10 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: e0ffb3d96a1d9744b8cab2e15d91682c, type: 3}
       propertyPath: m_Name
       value: MotoSemTextura
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: e0ffb3d96a1d9744b8cab2e15d91682c, type: 3}
+      propertyPath: m_Layer
+      value: 9
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
