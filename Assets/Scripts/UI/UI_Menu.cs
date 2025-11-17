@@ -3,9 +3,7 @@ using UnityEngine.UI;
 
 public class UI_Menu : MonoBehaviour
 {
-    public Button ExitButton;
-
-    private bool optionsOpened;
+    
 
     public void ChangeSceneByIndex(int index)
     {
@@ -26,5 +24,7 @@ public class UI_Menu : MonoBehaviour
     {
         Game_Manager.Instance.UI_Options.OpenOptions();
     }
+
+    
 
 }

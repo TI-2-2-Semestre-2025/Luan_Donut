@@ -358,8 +358,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   isPaused: 0
   laneOffset: 3
+  currentLevel: 0
   LevelManager: {fileID: 0}
   MenuManager: {fileID: 0}
+  MenuMobile_Manager: {fileID: 0}
+  AudioManager: {fileID: 0}
   CanvasOptions: {fileID: 0}
   UI_HUD: {fileID: 0}
   UI_Pause: {fileID: 0}
@@ -409,6 +412,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 108ad6ac512a36244ba8b7386443b5ae, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  CreditsPrefab: {fileID: 0}
+  CreditsThirdPrefab: {fileID: 0}
 --- !u!4 &217186185
 Transform:
   m_ObjectHideFlags: 0
@@ -548,7 +553,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c5e3a45e9d6d5f24283a32fa44e43e94, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ExitButton: {fileID: 2042292235}
 --- !u!114 &700257144
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -699,7 +703,7 @@ MonoBehaviour:
 '
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: e3b037c3a1c1b804d9f5f37308a3d578, type: 2}
-  m_sharedMaterial: {fileID: 2516822608741789728, guid: e3b037c3a1c1b804d9f5f37308a3d578, type: 2}
+  m_sharedMaterial: {fileID: -6325477923579587439, guid: e3b037c3a1c1b804d9f5f37308a3d578, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -835,7 +839,7 @@ MonoBehaviour:
   m_text: EXIT TO MENU
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: e3b037c3a1c1b804d9f5f37308a3d578, type: 2}
-  m_sharedMaterial: {fileID: 2516822608741789728, guid: e3b037c3a1c1b804d9f5f37308a3d578, type: 2}
+  m_sharedMaterial: {fileID: -6325477923579587439, guid: e3b037c3a1c1b804d9f5f37308a3d578, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []

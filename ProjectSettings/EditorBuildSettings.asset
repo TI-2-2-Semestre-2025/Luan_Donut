@@ -6,7 +6,7 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-    path: Assets/Scenes/Menu.unity
+    path: Assets/Scenes/Desktop_Menu.unity
     guid: 99c9720ab356a0642a771bea13969a05
   - enabled: 1
     path: Assets/Scenes/Level 1.unity
@@ -16,7 +16,7 @@ EditorBuildSettings:
     guid: eaf811ab6facc6f4f9c45a2a253659e9
   - enabled: 1
     path: Assets/Scenes/zVitoria.unity
-    guid: d1b40e48dd4fa8b42aca5d6f74118a28
+    guid: a24255fc5795c804291d947c40f04f23
   - enabled: 1
     path: Assets/Scenes/zDerrota.unity
     guid: 4055026f84dfe5a458270ded28204856

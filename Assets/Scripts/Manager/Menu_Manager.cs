@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class Menu_Manager : MonoBehaviour
 {
@@ -19,22 +20,69 @@ public class Menu_Manager : MonoBehaviour
         } 
     }
 
+    public GameObject CreditsPrefab;
+    public GameObject CreditsThirdPrefab;
+
+
     private bool optionsOpened;
+    private GameObject CreditsGO;
+    private GameObject CreditsThirdGO;
 
     private void Start()
     {
         Game_Manager.Instance.MenuManager = this;
     }
 
-    public void ChangeSceneByIndex(int index)
+    public void Play(GameObject Button)
     {
-        Debug.Log("oi");
-        Game_Manager.Instance.ChangeSceneByIndex(index);
+        StartCoroutine(I_Play(Button));
+    }
+
+    IEnumerator I_Play(GameObject button)
+    {
+        button.GetComponent<Animator>().SetTrigger("TriggerPlay");
+        yield return new WaitForSeconds(1f);
+        Game_Manager.Instance.ChangeSceneByIndex(1);
+    }
+
+    public void OpenOptions()
+    {
+        Game_Manager.Instance.UI_Options.OpenOptions();
+    }
+
+    public void Credits(bool value)
+    {
+        if (value)
+        {
+            CreditsGO = Instantiate(CreditsPrefab);
+        }else
+        {
+            Destroy(CreditsGO);
+        }
+    }
+
+    public void ThirdCredits(bool value)
+    {
+        if (value)
+        {
+            CreditsThirdGO = Instantiate(CreditsThirdPrefab);
+        }else
+        {
+            Destroy(CreditsThirdGO);
+        }
     }
      
     public void ExitGame()
     {
         Game_Manager.Instance.ExitGame();
+    }
+
+
+    //Temp for final screens
+
+    public void ChangeSceneByIndex(int index)
+    {
+        Game_Manager.Instance.ChangeSceneByIndex(index);
     }
 
     
