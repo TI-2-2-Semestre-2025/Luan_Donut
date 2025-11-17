@@ -41,7 +41,7 @@ public class Player_ControlDesktop : MonoBehaviour
         //Game Cheats
         if (Input.GetKeyDown(KeyCode.CapsLock))
         {
-            Game_Manager.Instance.ChangeLevel(Game_Manager.Instance.currentLevel+1);
+            Game_Manager.Instance.ChangeLevel();
         }
         if (Input.GetKeyDown(KeyCode.Tab))
         {

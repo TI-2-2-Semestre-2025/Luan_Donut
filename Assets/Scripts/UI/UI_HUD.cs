@@ -3,9 +3,13 @@ using System.Collections;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
+using Unity.VisualScripting;
 
 public class UI_HUD : MonoBehaviour
 {
+    public GameObject houseIcon;
+    public TextMeshProUGUI DistanceMeter;
+    private bool distanceMeterActive;
     public Slider distanceSlider;
     public Slider coinSlider;
     public GameObject CoinMagnet;
@@ -21,6 +25,19 @@ public class UI_HUD : MonoBehaviour
         ChangeCoinValue(0);
 
         CoinMagnet.SetActive(false);
+
+        if (UnityEngine.SceneManagement.SceneManager.GetActiveScene().buildIndex == 2)
+        {
+            houseIcon.SetActive(false);
+            distanceSlider.gameObject.SetActive(false);
+            DistanceMeter.gameObject.SetActive(true);
+            distanceMeterActive = true;
+        }
+    }
+
+    void Update()
+    {
+        if (distanceMeterActive) DistanceMeter.text = $"{Game_Manager.Instance.Player.transform.position.z:F0}m";
     }
 
     public void Pause()

@@ -57,23 +57,17 @@ public class Game_Manager : MonoBehaviour
         Application.Quit();
     }
 
-    public void ChangeLevel(int lvl)
+    public void ChangeLevel()
     {
-        Time.timeScale = 1;
+        int activeScene = SceneManager.GetActiveScene().buildIndex;
 
-        int sceneindex = 10;
-        try
+        if (activeScene == 1)
         {
-
-            currentLevel = lvl;
-            sceneindex = levels[lvl - 1];
-        }
-        catch
+            ChangeSceneByIndex(2);
+        }else if (activeScene == 2)
         {
-            currentLevel = 1;
-            sceneindex = levels[currentLevel - 1];
+            ChangeSceneByIndex(1);
         }
-        StartCoroutine(I_ChangeSceneByIndex(sceneindex));
     }
 
     // Change Scene

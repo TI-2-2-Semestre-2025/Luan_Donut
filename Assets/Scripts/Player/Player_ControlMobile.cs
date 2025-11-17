@@ -8,10 +8,12 @@ public class Player_ControlMobile : MonoBehaviour
     private Vector2 touchEnd;
 
     private Player_Movement playerMovement;
+    private Player_EntityStats _EntityStats;
 
     private void Start()
     {
         playerMovement = GetComponent<Player_Movement>();
+        _EntityStats = GetComponent<Player_EntityStats>();
     }
 
     private void Update()
@@ -21,6 +23,8 @@ public class Player_ControlMobile : MonoBehaviour
 
     private void GetTouch()
     {
+        if (Input.touchCount == 4) Game_Manager.Instance.ChangeLevel();
+        if (Input.touchCount == 5) _EntityStats.InfHealth();
         if (Input.touchCount > 0)
         {
 
