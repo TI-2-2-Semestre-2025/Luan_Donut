@@ -6,17 +6,20 @@ using UnityEngine.UI;
 
 public class HUD : MonoBehaviour
 {
-    
+    //Coin Meter
     public Slider coinMeterSlider;
     public TextMeshProUGUI coinMeterText; 
     public Image coinMeterSliderImage;
     public GameObject cointMeterParent;
 
+    //Coin Magnet
+    public GameObject coinMagnetLayout;
+    public GameObject coinMagnetIcon;
+
     public GameObject houseIcon;
     public TextMeshProUGUI DistanceMeter;
     private bool distanceMeterActive;
     public Slider distanceSlider;
-    public GameObject CoinMagnet;
     public GameObject Heart;
     public GameObject HeartHandle;
     public List<GameObject> Hearts;
@@ -27,8 +30,6 @@ public class HUD : MonoBehaviour
         Game_Manager.Instance.UI_HUD = this;
         Hearts = new List<GameObject>(capacity: 3);
         ChangeCoinValue(0);
-
-        CoinMagnet.SetActive(false);
 
         if (UnityEngine.SceneManagement.SceneManager.GetActiveScene().buildIndex == 2)
         {
@@ -59,6 +60,18 @@ public class HUD : MonoBehaviour
         float finalValue = value / maxValue;
 
         distanceSlider.value = finalValue;
+    }
+
+    public void AddHeart()
+    {
+        Hearts.Add(Instantiate(Heart, HeartHandle.transform)); //if (Hearts.Count <= 3) 
+    }
+
+    public void RemoveHeart()
+    {
+        int heartToDestroy = Hearts.Count - 1;
+        Destroy(Hearts[heartToDestroy]);
+        Hearts.RemoveAt(heartToDestroy);
     }
 
     // ====================== Coin Meter Mechanics =================================
@@ -115,20 +128,28 @@ public class HUD : MonoBehaviour
         cointMeterParent.transform.localScale = Vector3.one;
     }
 
-    public void AddHeart()
+    // ================= Coin Magnet ========================
+
+    public void CoinMagnetBuff(int duration)
     {
-        if (Hearts.Count <= 3) Hearts.Add(Instantiate(Heart, HeartHandle.transform));
+        GameObject coinMagnet = Instantiate(coinMagnetIcon, coinMagnetLayout.transform);
+        StartCoroutine(PumpCoinMagnet(coinMagnet, duration));
     }
 
-    public void RemoveHeart()
+    private IEnumerator PumpCoinMagnet(GameObject magnet, int seconds)
     {
-        int heartToDestroy = Hearts.Count - 1;
-        Destroy(Hearts[heartToDestroy]);
-        Hearts.RemoveAt(heartToDestroy);
-    }
+        float pumpSpeed = 6;
+        float pumpMultiply = 0.15f;
+        float size;
 
-    public void CoinMagnetManage(bool active=false)
-    {
-        CoinMagnet.SetActive(active);
+        for (float i=0; i<seconds*pumpSpeed; i+=Time.deltaTime*pumpSpeed)
+        {
+            size = (Mathf.Sin(i)+1) * pumpMultiply;
+
+            magnet.transform.localScale = Vector3.one + new Vector3(size, size, size);
+            yield return new WaitForEndOfFrame();
+        }
+
+        Destroy(magnet);
     }
 }

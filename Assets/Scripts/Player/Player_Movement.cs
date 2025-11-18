@@ -121,19 +121,5 @@ public class Player_Movement : MonoBehaviour
     public void Hit()
     {
         _entityStats.speed = (_entityStats.speed-_entityStats.initialSpeed)/1.5f + _entityStats.initialSpeed;
-        StartCoroutine(I_FlashPlayer());
-    }
-
-    private IEnumerator I_FlashPlayer()
-    {
-        MeshRenderer[] meshs = GetComponentsInChildren<MeshRenderer>();
-        
-        for (int i = 0; i < 5; i++)
-        {
-            for (int j = 0; j < meshs.Length; j++) meshs[j].enabled = false;
-            yield return new WaitForSeconds(0.2f);
-            for (int j = 0; j < meshs.Length; j++) meshs[j].enabled = true;
-            yield return new WaitForSeconds(0.2f);
-        }
     }
 }

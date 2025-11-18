@@ -16,7 +16,7 @@ public class Player_Collectables : MonoBehaviour
 
     public void AddLife()
     {
-        if (_playerEntityStats.hp < 3)
+        if (_playerEntityStats.hp < _playerEntityStats.maxHp)
         {
             Game_Manager.Instance.UI_HUD.AddHeart();
             _playerEntityStats.hp++;

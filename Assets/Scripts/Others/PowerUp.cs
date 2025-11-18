@@ -28,8 +28,7 @@ public class PowerUp : MonoBehaviour
     {
         if (Trigger.gameObject.CompareTag("CoinMagnet"))
         {
-            if (isCoin) Debug.Log(1);
-            if (isCoin) Coin(Player: Game_Manager.Instance.Player.gameObject);
+            if (isCoin) StartCoroutine(I_CoinMagnetAnimation(Game_Manager.Instance.Player.gameObject));
             return;
         }
         if (Trigger.gameObject.CompareTag("Player"))
@@ -52,6 +51,8 @@ public class PowerUp : MonoBehaviour
         Destroy(gameObject);
     }
 
+
+    // ================== Coin Magnet ==============================
     private void CoinMagnet(GameObject Player)
     {
         StartCoroutine(I_CoinMagnet(Player));
@@ -62,12 +63,26 @@ public class PowerUp : MonoBehaviour
         Player_Collision PC = Player.GetComponent<Player_Collision>();
         gameObject.GetComponentInChildren<MeshRenderer>().enabled = false;
 
-        PC.CoinMagnetCreate();
-        Game_Manager.Instance.UI_HUD.CoinMagnetManage(active: true);
-        yield return new WaitForSeconds(coinMagnetSeconds);
-        PC.CoinMagnetDestroy();
-        Game_Manager.Instance.UI_HUD.CoinMagnetManage(active: false);
-        
+        if (!PC.CoinMagnetActive)
+        {
+            PC.CoinMagnetCreate();
+            Game_Manager.Instance.UI_HUD.CoinMagnetBuff(coinMagnetSeconds);
+            yield return new WaitForSeconds(coinMagnetSeconds);
+            PC.CoinMagnetDestroy();
+        }
         Destroy(gameObject);
+    }
+
+    //Pikcup coins animation
+    private IEnumerator I_CoinMagnetAnimation(GameObject player)
+    {
+
+        float seconds = 1f;
+
+        for (float i=0; i<1; i+=Time.deltaTime*seconds)
+        {
+            gameObject.transform.position = Vector3.Lerp(gameObject.transform.position, player.transform.position, i);
+            yield return new WaitForEndOfFrame();
+        }
     }
 } 
