@@ -22,9 +22,11 @@ public class MenuMobile_Manager : MonoBehaviour
 
     public GameObject PlayLoading;
     public GameObject CreditsPrefab;
+    public GameObject HelpPrefab;
     
 
     private GameObject CreditsGO;
+    private GameObject HelpGO;
 
     private void Start()
     {
@@ -52,6 +54,12 @@ public class MenuMobile_Manager : MonoBehaviour
         {
             Destroy(CreditsGO);
         }
+    }
+
+    public void Help(bool open)
+    {
+        if (open) HelpGO = Instantiate(HelpPrefab);
+        else Destroy(HelpGO);
     }
 
     public void ExitGame()

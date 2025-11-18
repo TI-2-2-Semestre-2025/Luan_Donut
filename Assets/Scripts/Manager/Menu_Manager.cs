@@ -22,11 +22,13 @@ public class Menu_Manager : MonoBehaviour
 
     public GameObject CreditsPrefab;
     public GameObject CreditsThirdPrefab;
+    public GameObject HelpPrefab;
 
 
     private bool optionsOpened;
     private GameObject CreditsGO;
     private GameObject CreditsThirdGO;
+    private GameObject HelpGO;
 
     private void Start()
     {
@@ -71,6 +73,12 @@ public class Menu_Manager : MonoBehaviour
             Destroy(CreditsThirdGO);
         }
     }
+
+    public void Help(bool open)
+    {
+        if (open) HelpGO = Instantiate(HelpPrefab);
+        else Destroy(HelpGO);
+    }
      
     public void ExitGame()
     {
@@ -79,7 +87,6 @@ public class Menu_Manager : MonoBehaviour
 
 
     //Temp for final screens
-
     public void ChangeSceneByIndex(int index)
     {
         Game_Manager.Instance.ChangeSceneByIndex(index);

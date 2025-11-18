@@ -278,7 +278,9 @@ MonoBehaviour:
       m_Calls: []
   m_text: 'Text sources:
 
-    Syafrizal Khurasan'
+    Syafrizal Khurasan
+
+    All Super font'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 3239f2d54b3ab3742844f0b53490e17e, type: 2}
   m_sharedMaterial: {fileID: -3995636625225082175, guid: 3239f2d54b3ab3742844f0b53490e17e, type: 2}

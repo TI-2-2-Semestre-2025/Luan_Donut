@@ -35,6 +35,7 @@ public class Player_Collectables : MonoBehaviour
     {
         int sec = _playerEntityStats.coinsBonusSeconds;
         
+        Game_Manager.Instance.UI_HUD.ChangeCoinValue(1, true, _playerEntityStats.coinsBonusSeconds);
         Immortal(sec);
         StartCoroutine(I_CoinBonus(sec));
     }
@@ -70,6 +71,7 @@ public class Player_Collectables : MonoBehaviour
         _playerEntityStats.speed = defSpeed;
         cam.fieldOfView = defFOV;
         _playerEntityStats.coins = 0;
+        Game_Manager.Instance.UI_HUD.ChangeCoinValue(0);
     }
 
     public void Immortal(int sec)
@@ -79,9 +81,9 @@ public class Player_Collectables : MonoBehaviour
 
     IEnumerator I_Immortal(int sec)
     {
-        Physics.IgnoreLayerCollision(LayerMask.NameToLayer("Default"), LayerMask.NameToLayer("Default"), true);
+        Physics.IgnoreLayerCollision(LayerMask.NameToLayer("Player"), LayerMask.NameToLayer("Obstacles"), true);
         yield return new WaitForSeconds(sec);
-        Physics.IgnoreLayerCollision(LayerMask.NameToLayer("Default"), LayerMask.NameToLayer("Default"), false);
+        Physics.IgnoreLayerCollision(LayerMask.NameToLayer("Player"), LayerMask.NameToLayer("Obstacles"), false);
     }
 
 }

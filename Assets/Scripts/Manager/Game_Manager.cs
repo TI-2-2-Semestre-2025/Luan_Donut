@@ -31,7 +31,7 @@ public class Game_Manager : MonoBehaviour
     public Audio_Manager AudioManager;
 
     public GameObject CanvasOptions;
-    public UI_HUD UI_HUD;
+    public HUD UI_HUD;
     public UI_Pause UI_Pause;
     public UI_Options UI_Options;
 
