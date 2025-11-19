@@ -48,11 +48,11 @@ public class Level_Manager : MonoBehaviour
     {
         //Scenario Generator
 
-        /*
+        
         if (playerDistance + (terrainBlocksMulti * terrainBlocksDistance) >= (terrainBlocksDistance * terrainBlocksGenerated)) MapGeneration();
-        */
+        
 
-        if (terrainBlocksGenerated < (distance / terrainBlocksDistance)+1) MapGeneration();
+        //if (terrainBlocksGenerated < (distance / terrainBlocksDistance)+1) MapGeneration();
         
         GroundColliderControl();
         try
@@ -114,7 +114,7 @@ public class Level_Manager : MonoBehaviour
         bool waiting = true;
         while (waiting)
         {
-            yield return new WaitForEndOfFrame();
+            yield return new WaitForSeconds(2);
             if (playerDistance-80 > obj.transform.position.z) waiting = false;
         }
         Destroy(obj);

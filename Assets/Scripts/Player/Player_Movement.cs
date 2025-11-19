@@ -11,6 +11,7 @@ public class Player_Movement : MonoBehaviour
 
     private float yMovement = 0;
     private bool roll = false;
+    private bool changingLane = false;
     
     private CharacterController _characterController;
     private Player_EntityStats _entityStats;
@@ -62,7 +63,11 @@ public class Player_Movement : MonoBehaviour
         if (lane is <= 1 and >= -1)
         {
             //Change Lane Mechanic
-            StartCoroutine(I_ChangeLane(direction));
+            if (!changingLane)
+            {
+                changingLane = true;
+                StartCoroutine(I_ChangeLane(direction));
+            }
         }else lane -= direction;
     }
     
@@ -82,6 +87,7 @@ public class Player_Movement : MonoBehaviour
             yield return new WaitForEndOfFrame();
         }
         _characterController.Move(new Vector3(endPosition.x, transform.position.y, transform.position.z) - transform.position);
+        changingLane = false;
         
     }
 
