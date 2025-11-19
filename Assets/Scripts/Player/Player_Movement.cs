@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using UnityEngine;
 
@@ -42,9 +43,9 @@ public class Player_Movement : MonoBehaviour
     {
         if (transform.position.y <= 0.5f)
         {
-            yMovement = 0;
-            yMovement = _entityStats.jumpForce + gravityForce;
             roll = false;
+            yMovement = 0;
+            yMovement = _entityStats.jumpForce + gravityForce;  
         }
     }
 
@@ -60,29 +61,29 @@ public class Player_Movement : MonoBehaviour
         lane += direction;
         if (lane is <= 1 and >= -1)
         {
-            float laneOffset = Game_Manager.Instance.laneOffset;
-            _characterController.Move(direction * laneOffset * transform.right);
+            //Change Lane Mechanic
+            StartCoroutine(I_ChangeLane(direction));
         }else lane -= direction;
     }
     
-    /*
     IEnumerator I_ChangeLane(int direction)
     {
         float laneOffset = Game_Manager.Instance.laneOffset;
         Vector3 startPosition = new Vector3(transform.position.x, 0, 0);
-        Vector3 endPosition = startPosition + (direction * laneOffset * transform.right);
+        Vector3 endPosition = startPosition + (direction * laneOffset * Vector3.right);
 
-        for (float i = 0; i < _entityStats.changeLaneSeconds; i += Time.deltaTime)
+        
+        float distanceTravelled = 0;
+        while (distanceTravelled < 3)
         {
-            float t = i / _entityStats.changeLaneSeconds;
-            Vector3 movement = Vector3.Lerp(startPosition, endPosition, t);
-            Debug.Log(movement - transform.position);
-            _characterController.Move(movement - transform.position);
+            Vector3 move = (laneOffset / _entityStats.changeLaneSeconds) * Time.deltaTime * direction * transform.right;
+            _characterController.Move(move);
+            distanceTravelled += Math.Abs(move.x);
             yield return new WaitForEndOfFrame();
         }
-        _characterController.Move(endPosition - transform.position);
+        _characterController.Move(new Vector3(endPosition.x, transform.position.y, transform.position.z) - transform.position);
+        
     }
-    */
 
     public void Roll()
     {

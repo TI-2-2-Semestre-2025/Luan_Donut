@@ -211,15 +211,15 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   hp: 2
   maxHp: 2
-  changeLaneSeconds: 0.1
+  changeLaneSeconds: 0.15
   rollSeconds: 1
-  initialSpeed: 12
+  initialSpeed: 15
   speed: 0
-  maxSpeed: 30
+  maxSpeed: 35
   speedGain: 0.25
-  jumpForce: 0
+  jumpForce: -2
   coins: 0
-  coinsToBonus: 40
+  coinsToBonus: 200
   coinsBonusSeconds: 6
   PlayerCollectables: {fileID: 0}
   PlayerMovement: {fileID: 0}

@@ -43,16 +43,16 @@ public class Player_Collision : MonoBehaviour
         if (Trigger.gameObject.tag == "Obstaculo")
         {
             if (_entityStats.hp == 1000) return;
+            _entityStats.hp--;
+            if (_entityStats.hp <= 0)
+            {
+                Game_Manager.Instance.ChangeSceneByIndex(3);
+                return;
+            }
             gameObject.GetComponent<Player_Movement>().Hit();
             FlashPLayer(2);
             Immortal(2);
             Game_Manager.Instance.UI_HUD.RemoveHeart();
-            _entityStats.hp--;
-
-            if (_entityStats.hp <= 0)
-            {
-                Game_Manager.Instance.ChangeSceneByIndex(3);
-            }
         }
     }
 

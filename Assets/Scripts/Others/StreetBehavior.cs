@@ -7,6 +7,14 @@ public class StreetBehavior : MonoBehaviour
     public GameObject[] powerUpsLocation;
     public GameObject[] coins;
 
+    private void Awake()
+    {
+        for (int i = 0; i < coins.Length; i++)
+        {
+            coins[i].SetActive(false);
+        }
+    }
+
     public void GeneratePowerUp(GameObject PowerUp)
     {
         GameObject powerUpGO = Instantiate(PowerUp);
