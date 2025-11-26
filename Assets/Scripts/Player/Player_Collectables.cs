@@ -6,8 +6,6 @@ public class Player_Collectables : MonoBehaviour
 {
     private Player_EntityStats _playerEntityStats;
 
-    public GameObject[] coinBonusMaps;
-
     private void Start()
     {
         _playerEntityStats = GetComponent<Player_EntityStats>();
