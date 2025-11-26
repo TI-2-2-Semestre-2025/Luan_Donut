@@ -885,6 +885,7 @@ MonoBehaviour:
   - {fileID: 7760071839744435982, guid: 1efae3aeed053454eb8896463159bf78, type: 3}
   scenarioBlocks:
   - {fileID: 1238737226352378891, guid: 7af28f215025e144fbeb9fc446554c66, type: 3}
+  - {fileID: 1238737226352378891, guid: f082081bb67bc604f8ec68504eea5cb9, type: 3}
 --- !u!1 &1692839172
 GameObject:
   m_ObjectHideFlags: 0
