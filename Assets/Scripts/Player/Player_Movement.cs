@@ -5,17 +5,17 @@ using UnityEngine;
 public class Player_Movement : MonoBehaviour
 {
     public GameObject playerModel;
-    public int lane=0;
+    public int lane = 0;
     public float playerMass;
     public float gravityForce;
 
     private float yMovement = 0;
     private bool roll = false;
     private bool changingLane = false;
-    
+
     private CharacterController _characterController;
     private Player_EntityStats _entityStats;
-    
+
 
     private void Start()
     {
@@ -36,17 +36,17 @@ public class Player_Movement : MonoBehaviour
     {
         if (_characterController.isGrounded) yMovement = 0;
         yMovement += -(gravityForce * playerMass * Time.deltaTime);
-        
+
         _characterController.Move(yMovement * Time.deltaTime * transform.up);
     }
-    
+
     public void Jump()
     {
         if (transform.position.y <= 0.5f)
         {
             roll = false;
             yMovement = 0;
-            yMovement = _entityStats.jumpForce + gravityForce;  
+            yMovement = _entityStats.jumpForce + gravityForce;
         }
     }
 
@@ -59,25 +59,26 @@ public class Player_Movement : MonoBehaviour
     // 1 => Right / -1 => Left
     public void ChangeLane(int direction)
     {
-        lane += direction;
-        if (lane is <= 1 and >= -1)
+        if (!changingLane)
         {
-            //Change Lane Mechanic
-            if (!changingLane)
+            lane += direction;
+            if (lane is <= 1 and >= -1)
             {
                 changingLane = true;
                 StartCoroutine(I_ChangeLane(direction));
             }
-        }else lane -= direction;
+            else lane -= direction;
+        }
+
     }
-    
+
     IEnumerator I_ChangeLane(int direction)
     {
         float laneOffset = Game_Manager.Instance.laneOffset;
         Vector3 startPosition = new Vector3(transform.position.x, 0, 0);
         Vector3 endPosition = startPosition + (direction * laneOffset * Vector3.right);
 
-        
+
         float distanceTravelled = 0;
         while (distanceTravelled < 3)
         {
@@ -88,7 +89,7 @@ public class Player_Movement : MonoBehaviour
         }
         _characterController.Move(new Vector3(endPosition.x, transform.position.y, transform.position.z) - transform.position);
         changingLane = false;
-        
+
     }
 
     public void Roll()
@@ -98,35 +99,35 @@ public class Player_Movement : MonoBehaviour
             StartCoroutine(I_Roll());
         }
     }
-    
+
     private IEnumerator I_Roll()
     {
         int multi = 3;
         float defHeight = _characterController.height;
         Vector3 defCenter = _characterController.center;
-        
+
         roll = true;
         _characterController.height /= multi;
-        _characterController.center -= new Vector3(0, _characterController.height/multi, 0);
+        _characterController.center -= new Vector3(0, _characterController.height / multi, 0);
         yMovement -= _entityStats.jumpForce + gravityForce;
         playerModel.transform.localScale = new Vector3(1, 0.5f, 1);
 
         int quantity = 25;
-        for (int i=0; i<quantity; i++)
+        for (int i = 0; i < quantity; i++)
         {
             yield return new WaitForSeconds(_entityStats.rollSeconds / quantity);
             if (!roll) i = quantity;
         }
-        
+
         _characterController.height = defHeight;
         _characterController.center = defCenter;
         playerModel.transform.localScale = new Vector3(1, 1, 1);
         roll = false;
     }
-    
-    
+
+
     public void Hit()
     {
-        _entityStats.speed = (_entityStats.speed-_entityStats.initialSpeed)/1.5f + _entityStats.initialSpeed;
+        _entityStats.speed = (_entityStats.speed - _entityStats.initialSpeed) / 1.5f + _entityStats.initialSpeed;
     }
 }
