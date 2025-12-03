@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: e39021c720d4e444b8aba415c9ff1d1d
+guid: 964703c8deecd1c459505267facb16d2
 ModelImporter:
   serializedVersion: 22200
   internalIDToNameTable: []
@@ -7,18 +7,28 @@ ModelImporter:
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
-      name: BlueBrick
-    second: {fileID: 2100000, guid: 0936766df0bdd9f48a015f3e3aa226b1, type: 2}
+      name: Calcada_Mat
+    second: {fileID: -876546973899608171, guid: 9968ebd72d33a57449bda0b15e1f669e, type: 3}
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
-      name: Concrete
-    second: {fileID: 2100000, guid: b8807be182825b44b812c866d890552a, type: 2}
+      name: EstruturasCalcada_Mat
+    second: {fileID: 2100000, guid: 18984038558efd44a8ba62d902488025, type: 2}
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
-      name: Wood.001
-    second: {fileID: 2100000, guid: 20a5f3cbb7537be49a93c8a5217ba30b, type: 2}
+      name: LojaGrande_Mat
+    second: {fileID: -876546973899608171, guid: 9968ebd72d33a57449bda0b15e1f669e, type: 3}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Lojas001_AtlasMat
+    second: {fileID: -876546973899608171, guid: 9968ebd72d33a57449bda0b15e1f669e, type: 3}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Lojas002_AtlasMat
+    second: {fileID: -876546973899608171, guid: 9968ebd72d33a57449bda0b15e1f669e, type: 3}
   materials:
     materialImportMode: 2
     materialName: 0

@@ -896,7 +896,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   fogQuantity: 0
-  distance: 2000
+  distance: 250
   powerUpChance: 5
   coinChance: 50
   level: 0
@@ -919,8 +919,8 @@ MonoBehaviour:
   - {fileID: 7760071839744435982, guid: b9490495cd171eb4abb7264d2e15c5ce, type: 3}
   - {fileID: 7760071839744435982, guid: ee0a65c937074ad4184e31f4b6b1eae6, type: 3}
   scenarioBlocks:
-  - {fileID: 1238737226352378891, guid: 7af28f215025e144fbeb9fc446554c66, type: 3}
-  - {fileID: 1238737226352378891, guid: f082081bb67bc604f8ec68504eea5cb9, type: 3}
+  - {fileID: 2617194748443110415, guid: 85301f901ade85241aa13d0323b263e7, type: 3}
+  - {fileID: 2323155596723530522, guid: 2b454fdb41b616648922cd7bdd069efa, type: 3}
 --- !u!1 &1692839172
 GameObject:
   m_ObjectHideFlags: 0
