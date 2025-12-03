@@ -34,7 +34,8 @@ public class Level_Manager : MonoBehaviour
     public GameObject[] powerUps;
     public GameObject[] terrainBlocks;
     public GameObject[] scenarioBlocks;
-    
+    public GameObject scenarioLevel2;
+
     private float terrainBlocksGenerated = 1;
     private GameObject player;
 
@@ -64,8 +65,19 @@ public class Level_Manager : MonoBehaviour
     public void MapGeneration()
     {
         GenerateStreet();
-        GenerateScenario();
+        if (UnityEngine.SceneManagement.SceneManager.GetActiveScene().name == "Level 2") GenerateScenarioLevel2();
+        else GenerateScenario();
         terrainBlocksGenerated++;
+    }
+
+    private void GenerateScenarioLevel2()
+    {
+        GameObject ScenarioRight = Instantiate(scenarioLevel2);
+
+        ScenarioRight.transform.position = Vector3.zero;
+        ScenarioRight.transform.Translate(0, 0.505f, terrainBlocksDistance * terrainBlocksGenerated);
+
+        StartCoroutine(I_DeleteMap(ScenarioRight));
     }
     
 
