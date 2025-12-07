@@ -50,6 +50,7 @@ public class Player_Collision : MonoBehaviour
                 return;
             }
             gameObject.GetComponent<Player_Movement>().Hit();
+            _entityStats.PlayerSound.HitSoundPlay();
             FlashPLayer(2);
             Immortal(2);
             Game_Manager.Instance.UI_HUD.RemoveHeart();
@@ -63,7 +64,7 @@ public class Player_Collision : MonoBehaviour
 
     private IEnumerator I_FlashPlayer(int sec)
     {
-        MeshRenderer[] meshs = GetComponentsInChildren<MeshRenderer>();
+        SkinnedMeshRenderer[] meshs = GetComponentsInChildren<SkinnedMeshRenderer>();
         
         for (int i = 0; i < sec*2.5f; i++)
         {

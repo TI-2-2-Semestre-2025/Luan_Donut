@@ -14,8 +14,9 @@ public class Player_EntityStats : MonoBehaviour
     public int coins;
     public int coinsToBonus;
     public int coinsBonusSeconds;
-    
 
+
+    public Player_Sound PlayerSound;
     public Player_Collectables PlayerCollectables;
     public Player_Movement PlayerMovement;
 

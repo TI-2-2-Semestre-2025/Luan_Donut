@@ -976,9 +976,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ed1a6852d5ae95a41a815e643f9284c6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  distance: 250
+  distance: 2000
   powerUpChance: 5
-  coinChance: 50
+  coinChance: 75
   level: 0
   playerDistance: 0
   terrainBlocksDistance: 80
@@ -1828,10 +1828,6 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 573767871685678115, guid: 1da7a27da0831074c82ddc33c150c445, type: 3}
-      propertyPath: m_RenderPostProcessing
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 1408252051148793442, guid: 1da7a27da0831074c82ddc33c150c445, type: 3}
       propertyPath: m_Name
       value: Player
