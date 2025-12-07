@@ -18,8 +18,6 @@ public class Level_Manager : MonoBehaviour
         }
     }
 
-    //  attributes level-based changes
-    public float fogQuantity;
     public float distance = 1000;
     public int powerUpChance;
     public int coinChance;
@@ -108,13 +106,20 @@ public class Level_Manager : MonoBehaviour
         int index2 = Random.Range(0, scenarioBlocks.Length);
         GameObject ScenarioRight = Instantiate(scenarioBlocks[index1]);
         GameObject ScenarioLeft = Instantiate(scenarioBlocks[index2]);
-        
+
+        int invertZ = Random.Range(0, 2);
+        if (invertZ == 0) invertZ = -1;
+
         ScenarioRight.transform.position = Vector3.zero;
         ScenarioRight.transform.Translate(0, 0, terrainBlocksDistance * terrainBlocksGenerated);
-        
+        ScenarioLeft.transform.localScale = new Vector3(-1, 1, invertZ);
+
+        invertZ = Random.Range(0, 2);
+        if (invertZ == 0) invertZ = -1;
+
         ScenarioLeft.transform.position = Vector3.zero;
         ScenarioLeft.transform.Translate(0, 0, terrainBlocksDistance * terrainBlocksGenerated);
-        ScenarioLeft.transform.localScale = new Vector3(-1, 1, 1);
+        ScenarioLeft.transform.localScale = new Vector3(-1, 1, invertZ);
         
         
         StartCoroutine(I_DeleteMap(ScenarioLeft));
