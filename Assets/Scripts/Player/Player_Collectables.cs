@@ -25,7 +25,9 @@ public class Player_Collectables : MonoBehaviour
     {
         _playerEntityStats.coins += value;
         Game_Manager.Instance.UI_HUD.ChangeCoinValue((float)_playerEntityStats.coins / _playerEntityStats.coinsToBonus);
-        
+        _playerEntityStats.PlayerSound.CoinSound();
+
+        float percentage = ((float)_playerEntityStats.coins / (float)_playerEntityStats.coinsToBonus);
         if (_playerEntityStats.coins == _playerEntityStats.coinsToBonus) CoinBonus();
     }
 
@@ -49,11 +51,13 @@ public class Player_Collectables : MonoBehaviour
         float gainSpeedTime = 2;
         float looseSpeedTime = 2;
 
+        _playerEntityStats.PlayerSound.CoinBonusSoundPlay();
         while (secElapsed <= gainSpeedTime)
         {
             _playerEntityStats.speed += (defSpeed * (speedGainMultiplier-1) * (Time.deltaTime/gainSpeedTime));
             cam.fieldOfView += (defFOV * (FOVGainMultiplier-1) * (Time.deltaTime/gainSpeedTime));
             secElapsed += Time.deltaTime;
+            _playerEntityStats.PlayerSound.ChangeCoinBonusVolume(secElapsed/gainSpeedTime);
             yield return new WaitForEndOfFrame();
         }
         yield return new WaitForSeconds(sec - gainSpeedTime - looseSpeedTime);
@@ -63,6 +67,7 @@ public class Player_Collectables : MonoBehaviour
             _playerEntityStats.speed -= (defSpeed * (speedGainMultiplier-1) * (Time.deltaTime/looseSpeedTime));
             cam.fieldOfView -= (defFOV * (FOVGainMultiplier-1) * (Time.deltaTime/looseSpeedTime));
             secElapsed += Time.deltaTime;
+            _playerEntityStats.PlayerSound.ChangeCoinBonusVolume(1 - (secElapsed / looseSpeedTime));
             yield return new WaitForEndOfFrame();
         }
 
@@ -70,6 +75,10 @@ public class Player_Collectables : MonoBehaviour
         cam.fieldOfView = defFOV;
         _playerEntityStats.coins = 0;
         Game_Manager.Instance.UI_HUD.ChangeCoinValue(0);
+
+        _playerEntityStats.PlayerSound.ChangeCoinBonusVolume(0);
+        _playerEntityStats.PlayerSound.CoinBonusSoundStop();
+
     }
 
     public void Immortal(int sec)
@@ -80,8 +89,10 @@ public class Player_Collectables : MonoBehaviour
     IEnumerator I_Immortal(int sec)
     {
         Physics.IgnoreLayerCollision(LayerMask.NameToLayer("Player"), LayerMask.NameToLayer("Obstacles"), true);
+        Physics.IgnoreLayerCollision(LayerMask.NameToLayer("Player"), LayerMask.NameToLayer("Collectables"), true);
         yield return new WaitForSeconds(sec);
         Physics.IgnoreLayerCollision(LayerMask.NameToLayer("Player"), LayerMask.NameToLayer("Obstacles"), false);
+        Physics.IgnoreLayerCollision(LayerMask.NameToLayer("Player"), LayerMask.NameToLayer("Collectables"), false);
     }
 
 }

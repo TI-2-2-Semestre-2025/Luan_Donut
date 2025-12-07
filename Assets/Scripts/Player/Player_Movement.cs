@@ -47,6 +47,7 @@ public class Player_Movement : MonoBehaviour
             roll = false;
             yMovement = 0;
             yMovement = _entityStats.jumpForce + gravityForce;
+            _entityStats.PlayerSound.JumpSound();
         }
     }
 
@@ -79,6 +80,7 @@ public class Player_Movement : MonoBehaviour
         Vector3 endPosition = startPosition + (direction * laneOffset * Vector3.right);
 
 
+        _entityStats.PlayerSound.SwipeSound();
         float distanceTravelled = 0;
         while (distanceTravelled < 3)
         {
@@ -110,6 +112,7 @@ public class Player_Movement : MonoBehaviour
         _characterController.height /= multi;
         _characterController.center -= new Vector3(0, _characterController.height / multi, 0);
         yMovement -= _entityStats.jumpForce + gravityForce;
+        _entityStats.PlayerSound.RollSound();
         //playerModel.transform.localScale = new Vector3(1, 0.5f, 1);
 
         int quantity = 25;
@@ -122,6 +125,7 @@ public class Player_Movement : MonoBehaviour
         _characterController.height = defHeight;
         _characterController.center = defCenter;
         playerModel.transform.localScale = new Vector3(1, 1, 1);
+        _entityStats.PlayerSound.RollSound();
         roll = false;
     }
 
