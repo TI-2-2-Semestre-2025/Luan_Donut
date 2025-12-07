@@ -1211,8 +1211,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 118.95}
-  m_SizeDelta: {x: 1080, y: 1679.3}
+  m_AnchoredPosition: {x: 0, y: 84}
+  m_SizeDelta: {x: 902.1707, y: 1679.3}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &1399265018193713403
 CanvasRenderer:
@@ -1294,7 +1294,24 @@ MonoBehaviour:
     Syafrizal
     Khurasan
 
-    All Super Font'
+    All Super Font
+
+
+    Music / Sound effects:
+
+    meggiepie (pixabay)
+
+    u_nharq4usid
+    (pixabay)
+
+    LBDLPROD (pixabay)
+
+    Universfield (pixabay)
+
+    Kimsa-kimsa
+    (pixabay)
+
+    freesound_CrunchpixStudio (pixabay)'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 3239f2d54b3ab3742844f0b53490e17e, type: 2}
   m_sharedMaterial: {fileID: -3995636625225082175, guid: 3239f2d54b3ab3742844f0b53490e17e, type: 2}
@@ -1321,8 +1338,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 45
-  m_fontSizeBase: 45
+  m_fontSize: 40
+  m_fontSizeBase: 40
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
