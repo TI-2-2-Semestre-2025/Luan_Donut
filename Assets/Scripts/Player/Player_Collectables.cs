@@ -25,6 +25,7 @@ public class Player_Collectables : MonoBehaviour
     {
         _playerEntityStats.coins += value;
         Game_Manager.Instance.UI_HUD.ChangeCoinValue((float)_playerEntityStats.coins / _playerEntityStats.coinsToBonus);
+        _playerEntityStats.PlayerSound.CoinSound();
 
         float percentage = ((float)_playerEntityStats.coins / (float)_playerEntityStats.coinsToBonus);
         if (_playerEntityStats.coins == _playerEntityStats.coinsToBonus) CoinBonus();

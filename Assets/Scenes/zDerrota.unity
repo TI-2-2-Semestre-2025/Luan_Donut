@@ -362,7 +362,7 @@ MonoBehaviour:
   LevelManager: {fileID: 0}
   MenuManager: {fileID: 0}
   MenuMobile_Manager: {fileID: 0}
-  AudioManager: {fileID: 0}
+  MasterVolume: {fileID: 0}
   CanvasOptions: {fileID: 0}
   UI_HUD: {fileID: 0}
   UI_Pause: {fileID: 0}
@@ -942,7 +942,7 @@ AudioSource:
   m_GameObject: {fileID: 1021047306}
   m_Enabled: 1
   serializedVersion: 4
-  OutputAudioMixerGroup: {fileID: 0}
+  OutputAudioMixerGroup: {fileID: -928449899857776778, guid: 9e89280e3713d85498f2c53c550e0d07, type: 2}
   m_audioClip: {fileID: 8300000, guid: 92d69d247bd3348448ae7bf591ae6d56, type: 3}
   m_Resource: {fileID: 8300000, guid: 92d69d247bd3348448ae7bf591ae6d56, type: 3}
   m_PlayOnAwake: 1

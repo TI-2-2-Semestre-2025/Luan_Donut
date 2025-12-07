@@ -1,17 +1,16 @@
 using UnityEngine;
 using System.Collections.Generic;
+using UnityEngine.Audio;
 
 public class Audio_Manager : MonoBehaviour
 {
-    Dictionary<string, AudioClip> audios;
+    public AudioMixer masterMixer;
 
     void Start()
     {
-        Game_Manager.Instance.AudioManager = this;
+        Game_Manager.Instance.MasterVolume = masterMixer;
 
-        Debug.Log(audios["Play"]);
         
     }
-
 
 }

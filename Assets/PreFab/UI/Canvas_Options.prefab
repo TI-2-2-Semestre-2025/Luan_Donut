@@ -89,7 +89,19 @@ MonoBehaviour:
   m_Value: 0
   m_OnValueChanged:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1132452365074763205}
+        m_TargetAssemblyTypeName: UI_Options, Assembly-CSharp
+        m_MethodName: ChangeMusicVolume
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1 &295849120376060907
 GameObject:
   m_ObjectHideFlags: 0
@@ -496,6 +508,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 99993c0bec51cbf4297e25390a476c42, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  master: {fileID: 24100000, guid: 9e89280e3713d85498f2c53c550e0d07, type: 2}
+  sliderSoundEffects: {fileID: 2297447768631977776}
+  sliderMusic: {fileID: 969449409533835199}
 --- !u!1 &2950439641887416600
 GameObject:
   m_ObjectHideFlags: 0
@@ -796,7 +811,7 @@ GameObject:
   - component: {fileID: 8808308455324909631}
   - component: {fileID: 853440282064433958}
   m_Layer: 0
-  m_Name: List_MainVolume
+  m_Name: List_SoundEffectsVolume
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1713,7 +1728,7 @@ GameObject:
   - component: {fileID: 501042359471154958}
   - component: {fileID: 4239779542136284360}
   m_Layer: 0
-  m_Name: T_MainVolume
+  m_Name: T_SoundEffectsVolume
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1766,7 +1781,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Main Volume
+  m_text: Sound Effects Volume
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: e3b037c3a1c1b804d9f5f37308a3d578, type: 2}
   m_sharedMaterial: {fileID: -6325477923579587439, guid: e3b037c3a1c1b804d9f5f37308a3d578, type: 2}
@@ -1848,7 +1863,7 @@ GameObject:
   - component: {fileID: 7158337902911598003}
   - component: {fileID: 2297447768631977776}
   m_Layer: 0
-  m_Name: S_MainVolume
+  m_Name: S_SoundEffectsVolume
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1926,7 +1941,19 @@ MonoBehaviour:
   m_Value: 0
   m_OnValueChanged:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1132452365074763205}
+        m_TargetAssemblyTypeName: UI_Options, Assembly-CSharp
+        m_MethodName: ChangeEffectsVolume
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1 &9016659993242424410
 GameObject:
   m_ObjectHideFlags: 0

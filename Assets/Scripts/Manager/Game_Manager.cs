@@ -1,5 +1,6 @@
 using System.Collections;
 using UnityEngine;
+using UnityEngine.Audio;
 using UnityEngine.SceneManagement;
 
 public class Game_Manager : MonoBehaviour
@@ -28,7 +29,7 @@ public class Game_Manager : MonoBehaviour
     public Level_Manager LevelManager;
     public Menu_Manager MenuManager;
     public MenuMobile_Manager MenuMobile_Manager;
-    public Audio_Manager AudioManager;
+    public AudioMixer MasterVolume;
 
     public GameObject CanvasOptions;
     public HUD UI_HUD;
@@ -42,12 +43,27 @@ public class Game_Manager : MonoBehaviour
         isPaused = pause;
         UI_Pause.ChangeVisibility(isPaused);
 
-        if (isPaused) Time.timeScale = 0;
-        else Time.timeScale = 1;
+        if (isPaused)
+        {
+            Time.timeScale = 0;
+            Player.PlayerSound.PauseConstantsSounds();
+            MasterVolume.SetFloat("Master", -80);
+        }
+        else
+        {
+            Time.timeScale = 1;
+            Player.PlayerSound.ResumeConstantsMusic();
+            MasterVolume.SetFloat("Master", 0);
+        }
     }
 
     public void PauseChange()
     {
+        if (UI_Pause.OptionsOpened)
+        {
+            UI_Pause.CloseOptions();
+            return;
+        }
         isPaused = !isPaused;
         PauseGame(isPaused);
     }

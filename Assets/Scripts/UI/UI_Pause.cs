@@ -2,6 +2,7 @@ using UnityEngine;
 
 public class UI_Pause : MonoBehaviour
 {
+    public bool OptionsOpened = false;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
@@ -27,10 +28,12 @@ public class UI_Pause : MonoBehaviour
     public void OpenOptions()
     {
         Game_Manager.Instance.UI_Options.OpenOptions();
+        OptionsOpened = true;
     }
 
     public void CloseOptions()
     {
         Game_Manager.Instance.UI_Options.CloseOptions();
+        OptionsOpened = false;
     }
 }
