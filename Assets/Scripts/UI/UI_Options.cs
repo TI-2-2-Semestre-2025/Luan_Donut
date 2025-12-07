@@ -22,6 +22,8 @@ public class UI_Options : MonoBehaviour
         float dbMusic = volumeMusic <= 0.001f ? -80f : Mathf.Log10(volumeMusic) * 20;
         master.SetFloat("SoundsEffects", dbEffects);
         master.SetFloat("Music", dbMusic);
+        sliderSoundEffects.value = volumeEffects;
+        sliderMusic.value = volumeMusic;
     }
 
     public void ChangeEffectsVolume()
