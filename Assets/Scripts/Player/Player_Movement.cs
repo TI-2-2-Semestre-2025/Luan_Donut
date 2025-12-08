@@ -56,7 +56,11 @@ public class Player_Movement : MonoBehaviour
     {
         _characterController.Move(_entityStats.speed * Time.deltaTime * transform.forward);
         if (_entityStats.speed < _entityStats.maxSpeed) _entityStats.speed += _entityStats.speedGain * Time.deltaTime;
-        _entityStats.animator.SetFloat("RunSpeed", 1 + (_entityStats.speed/_entityStats.maxSpeed));
+
+        float animationSpeed = 1;
+        animationSpeed += (_entityStats.speed / _entityStats.maxSpeed);
+        if (animationSpeed <= 0) animationSpeed = 1;
+        _entityStats.animator.SetFloat("RunSpeed", animationSpeed);
     }
 
     // 1 => Right / -1 => Left

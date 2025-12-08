@@ -56,9 +56,17 @@ PrefabInstance:
       propertyPath: m_ConstrainProportionsScale
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: -1474744177594990516, guid: df76fd37ddad4dc4cb88c92e01ed3ece, type: 3}
+      propertyPath: m_Layer
+      value: 9
+      objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: df76fd37ddad4dc4cb88c92e01ed3ece, type: 3}
       propertyPath: m_Name
       value: obstaculo
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: df76fd37ddad4dc4cb88c92e01ed3ece, type: 3}
+      propertyPath: m_Layer
+      value: 9
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: df76fd37ddad4dc4cb88c92e01ed3ece, type: 3}
       propertyPath: m_TagString
@@ -68,6 +76,10 @@ PrefabInstance:
       propertyPath: 'm_Materials.Array.data[0]'
       value: 
       objectReference: {fileID: 2100000, guid: 76841a9bc0a8a5f4bbea6cc014567019, type: 2}
+    - target: {fileID: 7138810866634414032, guid: df76fd37ddad4dc4cb88c92e01ed3ece, type: 3}
+      propertyPath: m_Layer
+      value: 9
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
