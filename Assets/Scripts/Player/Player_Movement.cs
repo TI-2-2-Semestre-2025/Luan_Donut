@@ -66,6 +66,7 @@ public class Player_Movement : MonoBehaviour
     // 1 => Right / -1 => Left
     public void ChangeLane(int direction)
     {
+        if (_entityStats.hp <= 0) return;
         if (!changingLane)
         {
             lane += direction;
