@@ -356,24 +356,6 @@ MonoBehaviour:
   - {fileID: 2296482127388717486}
   - {fileID: 6519099131470452573}
   - {fileID: 4229499722462510160}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
 --- !u!1001 &36408334069963013
 PrefabInstance:
   m_ObjectHideFlags: 0
