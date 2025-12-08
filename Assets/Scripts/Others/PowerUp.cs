@@ -41,6 +41,7 @@ public class PowerUp : MonoBehaviour
     
     private void Health(GameObject Player)
     {
+        Game_Manager.Instance.Player.PlayerSound.PowerUpSound();
         Player.GetComponent<Player_EntityStats>().PlayerCollectables.AddLife();
         Destroy(gameObject);
     }
@@ -55,6 +56,7 @@ public class PowerUp : MonoBehaviour
     // ================== Coin Magnet ==============================
     private void CoinMagnet(GameObject Player)
     {
+        Game_Manager.Instance.Player.PlayerSound.PowerUpSound();
         StartCoroutine(I_CoinMagnet(Player));
     }
 

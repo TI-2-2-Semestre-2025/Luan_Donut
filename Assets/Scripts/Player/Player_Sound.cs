@@ -16,6 +16,7 @@ public class Player_Sound : MonoBehaviour
     public AudioSource CoinBonus;
     public AudioSource Hit;
     public AudioSource Coin;
+    public AudioSource PowerUp;
 
     private void Start()
     {
@@ -77,5 +78,10 @@ public class Player_Sound : MonoBehaviour
     public void ChangeCoinBonusVolume(float value)
     {
         CoinBonus.volume = value * 0.4f;
+    }
+
+    public void PowerUpSound()
+    {
+        PowerUp.Play(); 
     }
 }

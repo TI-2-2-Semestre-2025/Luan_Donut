@@ -31,7 +31,7 @@ Transform:
   m_LocalScale: {x: 108.08, y: 108.08, z: 108.08}
   m_ConstrainProportionsScale: 1
   m_Children:
-  - {fileID: 8575402353374790755}
+  - {fileID: 5247260679056556351}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!65 &8785599944242684119
@@ -68,9 +68,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   coinValue: 0
+  coinMagnetSeconds: 0
   isHealth: 1
   isCoin: 0
---- !u!1001 &8109657454612669320
+  isCoinMagnet: 0
+--- !u!1001 &5717525009970751188
 PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
@@ -137,7 +139,7 @@ PrefabInstance:
     - target: {fileID: -7511558181221131132, guid: 6ea0420d7295ab74fb480dac664189c7, type: 3}
       propertyPath: 'm_Materials.Array.data[0]'
       value: 
-      objectReference: {fileID: 2100000, guid: ec63b09eb26f0fd4583894b3f6302fce, type: 2}
+      objectReference: {fileID: 2100000, guid: 20507cbc3e4dbb8498ca15765be4a851, type: 2}
     - target: {fileID: 919132149155446097, guid: 6ea0420d7295ab74fb480dac664189c7, type: 3}
       propertyPath: m_Name
       value: DonutSemTextura
@@ -151,8 +153,8 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 6ea0420d7295ab74fb480dac664189c7, type: 3}
---- !u!4 &8575402353374790755 stripped
+--- !u!4 &5247260679056556351 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 6ea0420d7295ab74fb480dac664189c7, type: 3}
-  m_PrefabInstance: {fileID: 8109657454612669320}
+  m_PrefabInstance: {fileID: 5717525009970751188}
   m_PrefabAsset: {fileID: 0}
