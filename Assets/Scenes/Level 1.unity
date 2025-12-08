@@ -1803,6 +1803,18 @@ PrefabInstance:
       propertyPath: m_Name
       value: GroundCollider
       objectReference: {fileID: 0}
+    - target: {fileID: 7276028369023202914, guid: 6a3172b3e9da2af4888d9bfa8d1c670a, type: 3}
+      propertyPath: m_Size.y
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 7276028369023202914, guid: 6a3172b3e9da2af4888d9bfa8d1c670a, type: 3}
+      propertyPath: m_Size.z
+      value: 9000
+      objectReference: {fileID: 0}
+    - target: {fileID: 7276028369023202914, guid: 6a3172b3e9da2af4888d9bfa8d1c670a, type: 3}
+      propertyPath: m_Center.y
+      value: -2.5
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []

@@ -48,6 +48,7 @@ public class Player_Movement : MonoBehaviour
             yMovement = 0;
             yMovement = _entityStats.jumpForce + gravityForce;
             _entityStats.PlayerSound.JumpSound();
+            _entityStats.animator.SetTrigger("Jump");
         }
     }
 
@@ -55,6 +56,7 @@ public class Player_Movement : MonoBehaviour
     {
         _characterController.Move(_entityStats.speed * Time.deltaTime * transform.forward);
         if (_entityStats.speed < _entityStats.maxSpeed) _entityStats.speed += _entityStats.speedGain * Time.deltaTime;
+        _entityStats.animator.SetFloat("RunSpeed", 1 + (_entityStats.speed/_entityStats.maxSpeed));
     }
 
     // 1 => Right / -1 => Left
@@ -104,16 +106,17 @@ public class Player_Movement : MonoBehaviour
 
     private IEnumerator I_Roll()
     {
-        int multi = 3;
-        float defHeight = _characterController.height;
-        Vector3 defCenter = _characterController.center;
+        int multi = 4;
+        float defCenter = 0.94f;
+        float defHeight = 1.69f;
 
         roll = true;
-        _characterController.height /= multi;
-        _characterController.center -= new Vector3(0, _characterController.height / multi, 0);
-        yMovement -= _entityStats.jumpForce + gravityForce;
         _entityStats.PlayerSound.RollSound();
-        //playerModel.transform.localScale = new Vector3(1, 0.5f, 1);
+        _entityStats.animator.SetTrigger("StartRoll");
+
+        yMovement -= _entityStats.jumpForce + gravityForce;
+        _characterController.height = 0.2f;
+        _characterController.center = new Vector3(0, 0.2f, 0);
 
         int quantity = 25;
         for (int i = 0; i < quantity; i++)
@@ -123,9 +126,11 @@ public class Player_Movement : MonoBehaviour
         }
 
         _characterController.height = defHeight;
-        _characterController.center = defCenter;
+        _characterController.center = new Vector3(0, defCenter, 0);
+
         playerModel.transform.localScale = new Vector3(1, 1, 1);
         _entityStats.PlayerSound.RollSound();
+        _entityStats.animator.SetTrigger("EndRoll");
         roll = false;
     }
 

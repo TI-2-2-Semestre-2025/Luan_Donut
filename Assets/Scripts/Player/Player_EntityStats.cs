@@ -19,11 +19,13 @@ public class Player_EntityStats : MonoBehaviour
     public Player_Sound PlayerSound;
     public Player_Collectables PlayerCollectables;
     public Player_Movement PlayerMovement;
+    public Animator animator;
 
     public void Start()
     {
         speed = initialSpeed;
         Game_Manager.Instance.Player = this;
+        animator = GetComponent<Animator>();
     }
     
     public void InfHealth()

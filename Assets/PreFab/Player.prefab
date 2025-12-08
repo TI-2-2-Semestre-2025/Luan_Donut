@@ -314,6 +314,7 @@ GameObject:
   - component: {fileID: 4402299141956164617}
   - component: {fileID: 1007363202233307871}
   - component: {fileID: 2132733652995179577}
+  - component: {fileID: 4573340527425788172}
   m_Layer: 6
   m_Name: Player
   m_TagString: Player
@@ -380,7 +381,7 @@ MonoBehaviour:
   hp: 2
   maxHp: 2
   changeLaneSeconds: 0.15
-  rollSeconds: 1
+  rollSeconds: 2
   initialSpeed: 15
   speed: 0
   maxSpeed: 35
@@ -392,6 +393,7 @@ MonoBehaviour:
   PlayerSound: {fileID: 0}
   PlayerCollectables: {fileID: 0}
   PlayerMovement: {fileID: 0}
+  animator: {fileID: 0}
 --- !u!114 &3400610459743747314
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -480,6 +482,28 @@ MonoBehaviour:
   CoinBonus: {fileID: 2496461575803447763}
   Hit: {fileID: 365314946357571910}
   Coin: {fileID: 7238675935403670175}
+--- !u!95 &4573340527425788172
+Animator:
+  serializedVersion: 7
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1408252051148793442}
+  m_Enabled: 1
+  m_Avatar: {fileID: 9000000, guid: 95fe6a72f6e985a408f2eca44fdcbc27, type: 3}
+  m_Controller: {fileID: 9100000, guid: 106de1b6ca1ed124e835594509c94944, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_AnimatePhysics: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!1 &3647614642267965879
 GameObject:
   m_ObjectHideFlags: 0
@@ -1777,8 +1801,8 @@ Animator:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2758623191485543484}
-  m_Enabled: 1
-  m_Avatar: {fileID: 0}
+  m_Enabled: 0
+  m_Avatar: {fileID: 9000000, guid: 95fe6a72f6e985a408f2eca44fdcbc27, type: 3}
   m_Controller: {fileID: 9100000, guid: 106de1b6ca1ed124e835594509c94944, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0

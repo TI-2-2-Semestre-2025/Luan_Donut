@@ -214,7 +214,7 @@ ModelImporter:
       takeName: Armature|Levantando
       internalID: 8988721808584610472
       firstFrame: 0
-      lastFrame: 51
+      lastFrame: 30
       wrapMode: 0
       orientationOffsetY: 0
       level: 0
@@ -242,7 +242,7 @@ ModelImporter:
       name: Armature|Pulando
       takeName: Armature|Pulando
       internalID: -1864191153897412952
-      firstFrame: 0
+      firstFrame: 17
       lastFrame: 57
       wrapMode: 0
       orientationOffsetY: 0
@@ -326,7 +326,7 @@ ModelImporter:
     legStretch: 0.05
     feetSpacing: 0
     globalScale: 1
-    rootMotionBoneName: 
+    rootMotionBoneName: Armature
     hasTranslationDoF: 0
     hasExtraRoot: 0
     skeletonHasParents: 1
@@ -334,7 +334,7 @@ ModelImporter:
   autoGenerateAvatarMappingIfUnspecified: 1
   animationType: 2
   humanoidOversampling: 1
-  avatarSetup: 0
+  avatarSetup: 1
   addHumanoidExtraRootOnlyWhenUsingAvatar: 1
   importBlendShapeDeformPercent: 1
   remapMaterialsIfMaterialImportModeIsNone: 0
