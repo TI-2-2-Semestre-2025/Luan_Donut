@@ -15,8 +15,9 @@ public class UI_Pause : MonoBehaviour
         gameObject.SetActive(value);
     }
 
-    public void Continue()
+    public void Continue(bool click=false)
     {
+        if (click) Game_Manager.Instance.AudioManager.ClickSound();
         Game_Manager.Instance.PauseGame(false);
     }
     
@@ -25,14 +26,16 @@ public class UI_Pause : MonoBehaviour
         Game_Manager.Instance.ChangeSceneByIndex(0);
     }
 
-    public void OpenOptions()
+    public void OpenOptions(bool click=false)
     {
+        if (click) Game_Manager.Instance.AudioManager.ClickSound();
         Game_Manager.Instance.UI_Options.OpenOptions();
         OptionsOpened = true;
     }
 
-    public void CloseOptions()
+    public void CloseOptions(bool click=false)
     {
+        if (click) Game_Manager.Instance.AudioManager.ClickSound();
         Game_Manager.Instance.UI_Options.CloseOptions();
         OptionsOpened = false;
     }

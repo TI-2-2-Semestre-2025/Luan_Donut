@@ -46,7 +46,7 @@ public class Player_Collision : MonoBehaviour
             _entityStats.hp--;
             if (_entityStats.hp <= 0)
             {
-                Game_Manager.Instance.ChangeSceneByIndex(3);
+                StartCoroutine(Morte());
                 return;
             }
             gameObject.GetComponent<Player_Movement>().Hit();
@@ -55,6 +55,17 @@ public class Player_Collision : MonoBehaviour
             Immortal(2);
             Game_Manager.Instance.UI_HUD.RemoveHeart();
         }
+    }
+
+    private IEnumerator Morte()
+    {
+        _entityStats.animator.SetTrigger("Morte");
+        _entityStats.maxSpeed = 0.01f;
+        _entityStats.speed = 0;
+
+
+        yield return new WaitForSeconds(4f);
+        Game_Manager.Instance.ChangeSceneByIndex(3);
     }
 
     public void FlashPLayer(int sec)

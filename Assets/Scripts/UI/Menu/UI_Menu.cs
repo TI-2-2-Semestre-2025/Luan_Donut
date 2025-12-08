@@ -20,8 +20,9 @@ public class UI_Menu : MonoBehaviour
         Menu_Manager.Instance.ExitGame();
     }
 
-    public void OpenOptions()
+    public void OpenOptions(bool click = false)
     {
+        if (click) Game_Manager.Instance.AudioManager.ClickSound();
         Game_Manager.Instance.UI_Options.OpenOptions();
     }
 

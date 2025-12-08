@@ -41,7 +41,12 @@ public class MenuMobile_Manager : MonoBehaviour
 
     public void Options(bool open)
     {
-        if (open) Game_Manager.Instance.UI_Options.OpenOptions();
+        if (open)
+        {
+            Game_Manager.Instance.UI_Options.OpenOptions();
+            bool click = true;
+            if (click) Game_Manager.Instance.AudioManager.ClickSound();
+        }
         else Game_Manager.Instance.UI_Options.CloseOptions();
     }
 
@@ -49,6 +54,8 @@ public class MenuMobile_Manager : MonoBehaviour
     {
         if (open)
         {
+            bool click = true;
+            if (click) Game_Manager.Instance.AudioManager.ClickSound();
             CreditsGO = Instantiate(CreditsPrefab);
         }else
         {
@@ -58,7 +65,12 @@ public class MenuMobile_Manager : MonoBehaviour
 
     public void Help(bool open)
     {
-        if (open) HelpGO = Instantiate(HelpPrefab);
+        if (open)
+        {
+            HelpGO = Instantiate(HelpPrefab);
+            bool click = true;
+            if (click) Game_Manager.Instance.AudioManager.ClickSound();
+        }
         else Destroy(HelpGO);
     }
 

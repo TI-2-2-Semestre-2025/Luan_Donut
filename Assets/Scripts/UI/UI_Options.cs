@@ -42,13 +42,15 @@ public class UI_Options : MonoBehaviour
         PlayerPrefs.SetFloat("VolumeMusic", volume);
     }
 
-    public void OpenOptions()
+    public void OpenOptions(bool click=false)
     {
+        if (click) Game_Manager.Instance.AudioManager.ClickSound();
         gameObject.SetActive(true);
     }
 
-    public void CloseOptions()
+    public void CloseOptions(bool click=false)
     {
+        if (click) Game_Manager.Instance.AudioManager.ClickSound();
         gameObject.SetActive(false);
     }
 }

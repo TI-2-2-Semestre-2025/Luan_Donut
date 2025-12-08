@@ -1242,74 +1242,79 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 'history / game design:
+  m_text: 'prof orientador:
 
-    laura alairce
+    Daniel Pinheiro Lima
+
+
+    history / game design:
+
+    laura
+    alairce
 
     cristopher raphael
 
-    anna
-    victoria
+    anna victoria
 
 
     programmers:
 
-    bernardo horta
+    bernardo
+    horta
 
     cristopher raphael
 
 
-    art
-    (ui);
+    art (ui);
 
     bernardo horta
 
-    laura alairce
+    laura
+    alairce
 
 
     3D ARt:
 
     Cristopher Raphael
 
-    Bernardo
-    Horta
+    Bernardo Horta
 
     Anna Victoria
 
 
     animation:
 
-    bernardo horta
+    bernardo
+    horta
 
-    cristopher
-    raphael
+    cristopher raphael
 
     laura alairce
 
     anna victoria
 
 
-    Text sources:
+    Text
+    sources:
 
-    Syafrizal
-    Khurasan
+    Syafrizal Khurasan
 
     All Super Font
 
 
     Music / Sound effects:
 
-    meggiepie (pixabay)
-
-    u_nharq4usid
+    meggiepie
     (pixabay)
+
+    u_nharq4usid (pixabay)
 
     LBDLPROD (pixabay)
 
-    Universfield (pixabay)
-
-    Kimsa-kimsa
+    Universfield
     (pixabay)
+
+    Kimsa-kimsa (pixabay)
 
     freesound_CrunchpixStudio (pixabay)'
   m_isRightToLeft: 0

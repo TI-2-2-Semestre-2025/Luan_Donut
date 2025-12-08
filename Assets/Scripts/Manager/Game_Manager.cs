@@ -29,6 +29,7 @@ public class Game_Manager : MonoBehaviour
     public Level_Manager LevelManager;
     public Menu_Manager MenuManager;
     public MenuMobile_Manager MenuMobile_Manager;
+    public Audio_Manager AudioManager;
     public AudioMixer MasterVolume;
 
     public GameObject CanvasOptions;
